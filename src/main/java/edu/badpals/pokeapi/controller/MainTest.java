@@ -11,6 +11,6 @@ public class MainTest {
         Pokemon poke = APIPetitions.askAPIforPokemon("bulbasaur");
         System.out.println(poke);
         List<Area> areas = APIPetitions.askAPIforArea(poke.getId());
-        System.out.println(areas);
+        System.out.println(areas.get(0).getName());
     }
 }

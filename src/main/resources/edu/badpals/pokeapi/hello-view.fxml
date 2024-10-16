@@ -23,5 +23,10 @@
     <Label fx:id="japaneseName"/>
     <Label text="Coreano:"/>
     <Label fx:id="koreanName"/>
+    <Label fx:id="pokemonLocation"/>
+    <Button text="Buscar área" onAction="#buscarArea"/>
+
+
+
 
 </VBox>
