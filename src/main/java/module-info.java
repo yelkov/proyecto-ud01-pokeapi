@@ -6,5 +6,7 @@ module edu.badpals.pokeapi {
 
 
     opens edu.badpals.pokeapi to javafx.fxml;
+    opens edu.badpals.pokeapi.model;
+    exports edu.badpals.pokeapi.model;
     exports edu.badpals.pokeapi;
 }
