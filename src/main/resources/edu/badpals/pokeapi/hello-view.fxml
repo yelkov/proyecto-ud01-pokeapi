@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
+<?import javafx.scene.layout.HBox?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="edu.badpals.pokeapi.controller.AppController">
     <padding>
@@ -17,12 +18,18 @@
 
     <TextField fx:id="pokemonName"/>
     <Button text="Buscar" onAction="#cargarPokemon"/>
-    <Label text="Pokemon id:"/>
-    <Label fx:id="pokemonId"/>
-    <Label text="Nombre:"/>
-    <ComboBox fx:id="idiomas" onAction="#cargaNombreExtranjero"/>
-    <Label fx:id="foreignName"/>
-    <Label text="Location"/>
-    <Label fx:id="pokemonLocation"/>
-    <Button text="Buscar área" onAction="#buscarArea"/>
+    <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <Label text="Pokemon id:"/>
+        <Label fx:id="pokemonId"/>
+    </HBox>
+    <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <Label text="Nombre:"/>
+        <ComboBox fx:id="idiomas" onAction="#cargaNombreExtranjero"/>
+        <Label fx:id="foreignName"/>
+    </HBox>
+    <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <Label text="Location"/>
+        <Button text="Buscar área" onAction="#buscarArea"/>
+        <Label fx:id="pokemonLocation"/>
+    </HBox>
 </VBox>
