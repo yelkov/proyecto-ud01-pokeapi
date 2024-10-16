@@ -1,8 +1,6 @@
 package edu.badpals.pokeapi.service;
 
-import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.badpals.pokeapi.model.Area;
@@ -38,7 +36,7 @@ public class APIPetitions {
         return null;
     }
 
-    public static List<Area> askAPIforArea(String pokemonID){
+    public static List<Area> askAPIforArea(int pokemonID){
         try{
             URL jsonURL = new URL(ENCOUNTERS_URL_BEGIN + pokemonID + ENCOUNTERS_URL_END);
             ObjectMapper mapper = new ObjectMapper();
