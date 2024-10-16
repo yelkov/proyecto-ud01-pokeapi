@@ -3,7 +3,9 @@ package edu.badpals.pokeapi.controller;
 import edu.badpals.pokeapi.model.Area;
 import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.service.APIPetitions;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -28,10 +30,23 @@ public class AppController {
     @FXML
     private Label pokemonLocation;
 
+    @FXML
+    private ComboBox<String> idiomas;
+
+    @FXML
+    private Label foreignName;
+
     public static Pokemon pokemon;
     public static int id;
     public static List<Area> areas;
     public static int currentArea = 0;
+
+    @FXML
+    private void initialize() {
+        idiomas.setItems(FXCollections.observableArrayList(
+                "english","japanese","korean","french","german","simplified chinese"
+        ));
+    }
 
 
     @FXML
@@ -39,10 +54,12 @@ public class AppController {
         pokemon = APIPetitions.askAPIforPokemon(pokemonName.getText());
         id = pokemon.getId();
         pokemonId.setText(String.valueOf(id));
-        englishName.setText(pokemon.getNameDictionary().get("english"));
-        koreanName.setText(pokemon.getNameDictionary().get("korean"));
-        japaneseName.setText(pokemon.getNameDictionary().get("japanese"));
         areas = APIPetitions.askAPIforArea(id);
+    }
+
+    public void cargaNombreExtranjero(){
+        String idioma = idiomas.getSelectionModel().getSelectedItem();
+        foreignName.setText(pokemon.getNameDictionary().get(idioma));
     }
 
     public void buscarArea(){
