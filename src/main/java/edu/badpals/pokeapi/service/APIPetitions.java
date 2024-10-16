@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.badpals.pokeapi.model.Area;
+import edu.badpals.pokeapi.model.Pokemon;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,6 +31,9 @@ public class APIPetitions {
         } catch (MalformedURLException e) {
             System.out.println("The URL of Pokemon is invalid");
             e.printStackTrace();
+        }catch (IOException e) {
+            System.out.println("Error reading pokemon from jsonURL.");
+            e.printStackTrace();
         }
         return null;
     }
@@ -38,7 +43,7 @@ public class APIPetitions {
             URL jsonURL = new URL(ENCOUNTERS_URL_BEGIN + pokemonID + ENCOUNTERS_URL_END);
             ObjectMapper mapper = new ObjectMapper();
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
-            List<Area> areas = mapper.readValue(jsonURL, new TypeReference<List<Area>>());
+            List<Area> areas = mapper.readValue(jsonURL, new TypeReference<List<Area>>(){});
             return areas;
 
         } catch (MalformedURLException e) {
