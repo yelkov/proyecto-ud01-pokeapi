@@ -1,0 +1,98 @@
+{
+  "pokemon" : {
+    "id" : 172,
+    "name" : "pichu",
+    "names" : [ {
+      "name" : "ピチュー",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Pichu",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "피츄",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "皮丘",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Pichu",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Pichu",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Pichu",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Pichu",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Pichu",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "ピチュー",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "皮丘",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "locationArea" : {
+      "name" : "trophy-garden-area"
+    },
+    "location_area" : {
+      "name" : "trophy-garden-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-34-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-34-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "alola-route-1-east"
+    },
+    "location_area" : {
+      "name" : "alola-route-1-east"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "alola-route-1-west"
+    },
+    "location_area" : {
+      "name" : "alola-route-1-west"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "hauoli-city-shopping-district"
+    },
+    "location_area" : {
+      "name" : "hauoli-city-shopping-district"
+    }
+  } ]
+}

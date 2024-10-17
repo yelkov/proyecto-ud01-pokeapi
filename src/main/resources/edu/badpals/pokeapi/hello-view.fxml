@@ -17,6 +17,7 @@
     </padding>
 
     <TextField fx:id="pokemonName"/>
+    <Label fx:id="errorMessage" text="Error al cargar los datos del pokemon" visible="false"/>
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
         <Button text="Buscar" onAction="#loadPokemon"/>
         <Button text="Limpiar" onAction="#cleanFields"/>

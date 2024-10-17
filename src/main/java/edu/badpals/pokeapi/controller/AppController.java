@@ -12,6 +12,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class AppController {
     @FXML
     private Button btnSiguiente;
 
+    @FXML
+    private Label errorMessage;
+
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
     public static int id;
@@ -55,28 +59,40 @@ public class AppController {
 
     @FXML
     protected void loadPokemon() {
+        Boolean loadable = true;
         String name = pokemonName.getText();
+        errorMessage.setVisible(false);
         currentArea = 0;
         try{
             pokemonData = CacheManager.loadCache(name);
         } catch (IOException e){
-            pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
-            CacheManager.saveCache(pokemonData);
+            try {
+                pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
+                CacheManager.saveCache(pokemonData);
+            } catch (IOException notFound){
+                loadable = false;
+                cleanFields();
+                errorMessage.setVisible(true);
+
+            }
         }
-        pokemon = pokemonData.getPokemon();
-        id = pokemon.getId();
-        pokemonId.setText(String.valueOf(id));
-        areas = pokemonData.getAreas();
-        if (areas.size() > 1){
-            btnAnterior.setDisable(false);
-            btnSiguiente.setDisable(false);
-        } else {
-            btnAnterior.setDisable(true);
-            btnSiguiente.setDisable(true);
+        if(loadable) {
+            pokemon = pokemonData.getPokemon();
+            id = pokemon.getId();
+            pokemonId.setText(String.valueOf(id));
+            areas = pokemonData.getAreas();
+            if (areas.size() > 1) {
+                btnAnterior.setDisable(false);
+                btnSiguiente.setDisable(false);
+            } else {
+                btnAnterior.setDisable(true);
+                btnSiguiente.setDisable(true);
+            }
+            loadForeignName();
+            searchArea();
         }
-        loadForeignName();
-        searchArea();
-    }
+        }
+
 
     public void loadForeignName(){
         try {
@@ -124,5 +140,6 @@ public class AppController {
         pokemonName.setText("");
         btnAnterior.setDisable(true);
         btnSiguiente.setDisable(true);
+        errorMessage.setVisible(false);
     }
 }
