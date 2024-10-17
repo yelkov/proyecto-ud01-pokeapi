@@ -15,7 +15,7 @@ public class Area {
     }
 
     public String obtainName(){
-        return getLocationArea().getName();
+        return getLocationArea().getName().replace("-"," ");
     }
 
     @Override
