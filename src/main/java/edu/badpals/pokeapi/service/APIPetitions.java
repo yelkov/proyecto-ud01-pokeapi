@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.badpals.pokeapi.model.Area;
 import edu.badpals.pokeapi.model.Pokemon;
+import edu.badpals.pokeapi.model.PokemonData;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +17,15 @@ public class APIPetitions {
     private static final String ENCOUNTERS_URL_BEGIN = "https://pokeapi.co/api/v2/pokemon/";
     private static final String ENCOUNTERS_URL_END = "/encounters";
 
-    public static Pokemon askAPIforPokemon(String pokemonName){
+    public static PokemonData getPokemonData(String pokemonName){
+        Pokemon pokemon = askAPIforPokemon(pokemonName);
+        List<Area> areas = askAPIforArea(pokemon.getId());
+        PokemonData pokemonData = new PokemonData(pokemon,areas);
+
+        return pokemonData;
+    }
+
+    private static Pokemon askAPIforPokemon(String pokemonName){
         try{
             URL jsonURL = new URL(POKEMON_URL + pokemonName);
             ObjectMapper mapper = new ObjectMapper();
@@ -24,7 +33,6 @@ public class APIPetitions {
             Pokemon pokemon = mapper.readValue(jsonURL, Pokemon.class);
 
             return pokemon;
-
 
         } catch (MalformedURLException e) {
             System.out.println("The URL of Pokemon is invalid");
@@ -36,12 +44,13 @@ public class APIPetitions {
         return null;
     }
 
-    public static List<Area> askAPIforArea(int pokemonID){
+    private static List<Area> askAPIforArea(int pokemonID){
         try{
             URL jsonURL = new URL(ENCOUNTERS_URL_BEGIN + pokemonID + ENCOUNTERS_URL_END);
             ObjectMapper mapper = new ObjectMapper();
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
             List<Area> areas = mapper.readValue(jsonURL, new TypeReference<List<Area>>(){});
+
             return areas;
 
         } catch (MalformedURLException e) {
