@@ -1,0 +1,301 @@
+{
+  "pokemon" : {
+    "id" : 10,
+    "name" : "caterpie",
+    "names" : [ {
+      "name" : "キャタピー",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Caterpie",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "캐터피",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "綠毛蟲",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Chenipan",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Raupy",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Caterpie",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Caterpie",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Caterpie",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "キャタピー",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "绿毛虫",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "locationArea" : {
+      "name" : "eterna-forest-area"
+    },
+    "location_area" : {
+      "name" : "eterna-forest-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "sinnoh-route-204-south-towards-jubilife-city"
+    },
+    "location_area" : {
+      "name" : "sinnoh-route-204-south-towards-jubilife-city"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "sinnoh-route-204-north-towards-floaroma-town"
+    },
+    "location_area" : {
+      "name" : "sinnoh-route-204-north-towards-floaroma-town"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-30-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-30-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-31-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-31-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "ilex-forest-area"
+    },
+    "location_area" : {
+      "name" : "ilex-forest-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-34-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-34-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-35-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-35-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "national-park-area"
+    },
+    "location_area" : {
+      "name" : "national-park-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "unknown-all-bugs-area"
+    },
+    "location_area" : {
+      "name" : "unknown-all-bugs-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-36-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-36-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-37-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-37-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-38-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-38-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-39-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-39-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "lake-of-rage-area"
+    },
+    "location_area" : {
+      "name" : "lake-of-rage-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-route-26-area"
+    },
+    "location_area" : {
+      "name" : "kanto-route-26-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-route-27-area"
+    },
+    "location_area" : {
+      "name" : "kanto-route-27-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-route-2-south-towards-viridian-city"
+    },
+    "location_area" : {
+      "name" : "kanto-route-2-south-towards-viridian-city"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-route-24-area"
+    },
+    "location_area" : {
+      "name" : "kanto-route-24-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-route-25-area"
+    },
+    "location_area" : {
+      "name" : "kanto-route-25-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-route-2-north-towards-pewter-city"
+    },
+    "location_area" : {
+      "name" : "kanto-route-2-north-towards-pewter-city"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "viridian-forest-area"
+    },
+    "location_area" : {
+      "name" : "viridian-forest-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "pattern-bush-area"
+    },
+    "location_area" : {
+      "name" : "pattern-bush-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kalos-route-2-area"
+    },
+    "location_area" : {
+      "name" : "kalos-route-2-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "santalune-forest-area"
+    },
+    "location_area" : {
+      "name" : "santalune-forest-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "azalea-town-area"
+    },
+    "location_area" : {
+      "name" : "azalea-town-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "alola-route-1-east"
+    },
+    "location_area" : {
+      "name" : "alola-route-1-east"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "alola-route-1-south"
+    },
+    "location_area" : {
+      "name" : "alola-route-1-south"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "alola-route-1-west"
+    },
+    "location_area" : {
+      "name" : "alola-route-1-west"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "alola-route-5-area"
+    },
+    "location_area" : {
+      "name" : "alola-route-5-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "lush-jungle-north"
+    },
+    "location_area" : {
+      "name" : "lush-jungle-north"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "lush-jungle-south"
+    },
+    "location_area" : {
+      "name" : "lush-jungle-south"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "lush-jungle-west"
+    },
+    "location_area" : {
+      "name" : "lush-jungle-west"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "melemele-meadow-area"
+    },
+    "location_area" : {
+      "name" : "melemele-meadow-area"
+    }
+  } ]
+}

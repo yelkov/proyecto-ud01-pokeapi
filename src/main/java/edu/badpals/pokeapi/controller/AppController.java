@@ -54,7 +54,7 @@ public class AppController {
 
 
     @FXML
-    protected void cargarPokemon() {
+    protected void loadPokemon() {
         String name = pokemonName.getText();
         currentArea = 0;
         try{
@@ -74,11 +74,11 @@ public class AppController {
             btnAnterior.setDisable(true);
             btnSiguiente.setDisable(true);
         }
-        cargaNombreExtranjero();
+        loadForeignName();
         searchArea();
     }
 
-    public void cargaNombreExtranjero(){
+    public void loadForeignName(){
         try {
             String idioma = languages.getSelectionModel().getSelectedItem();
             foreignName.setText(pokemon.obtainNameDictionary().get(idioma));
@@ -113,7 +113,7 @@ public class AppController {
         searchArea();
     }
 
-    public void limpiarCampos(){
+    public void cleanFields(){
         pokemonData = null;
         pokemon = null;
         areas = null;
@@ -122,5 +122,7 @@ public class AppController {
         pokemonId.setText("");
         foreignName.setText("");
         pokemonName.setText("");
+        btnAnterior.setDisable(true);
+        btnSiguiente.setDisable(true);
     }
 }
