@@ -40,10 +40,10 @@ public class Pokemon {
         return foreignNames;
     }
 
-    public Map<String,String> getNameDictionary(){
+    public Map<String,String> obtainNameDictionary(){
         Map<String,String> dictionary = new HashMap<>();
         for (ForeignName foreignName : getForeignNames()){
-            dictionary.putIfAbsent(foreignName.getLanguageName(), foreignName.getName());
+            dictionary.putIfAbsent(foreignName.obtainLanguageName(), foreignName.getName());
         }
         return dictionary;
     }

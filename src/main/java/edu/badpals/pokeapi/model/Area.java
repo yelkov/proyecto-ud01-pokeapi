@@ -14,7 +14,7 @@ public class Area {
         this.loc = loc;
     }
 
-    public String getName(){
+    public String obtainName(){
         return getLocationArea().getName();
     }
 

@@ -27,12 +27,12 @@ public class ForeignName{
         this.name = name;
     }
 
-    public String getLanguageCode(){
+    public String obtainLanguageCode(){
         return getLanguage().getName();
     }
 
-    public String getLanguageName(){
-        String code = getLanguageCode();
+    public String obtainLanguageName(){
+        String code = obtainLanguageCode();
         String name;
         switch (code){
             case "ko":
@@ -64,7 +64,7 @@ public class ForeignName{
     public String toString() {
         return "ForeignName{" +
                 "name='" + name + '\'' +
-                ", language=" + getLanguageName() +
+                ", language=" + obtainLanguageName() +
                 '}';
     }
 }

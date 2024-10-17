@@ -2,6 +2,7 @@ package edu.badpals.pokeapi.controller;
 
 import edu.badpals.pokeapi.model.Area;
 import edu.badpals.pokeapi.model.Pokemon;
+import edu.badpals.pokeapi.model.PokemonData;
 import edu.badpals.pokeapi.service.APIPetitions;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -36,6 +37,7 @@ public class AppController {
     @FXML
     private Label foreignName;
 
+    public static PokemonData pokemonData;
     public static Pokemon pokemon;
     public static int id;
     public static List<Area> areas;
@@ -51,15 +53,16 @@ public class AppController {
 
     @FXML
     protected void cargarPokemon() {
-        pokemon = APIPetitions.askAPIforPokemon(pokemonName.getText());
+        pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
+        pokemon = pokemonData.getPokemon();
         id = pokemon.getId();
         pokemonId.setText(String.valueOf(id));
-        areas = APIPetitions.askAPIforArea(id);
+        areas = pokemonData.getAreas();
     }
 
     public void cargaNombreExtranjero(){
         String idioma = idiomas.getSelectionModel().getSelectedItem();
-        foreignName.setText(pokemon.getNameDictionary().get(idioma));
+        foreignName.setText(pokemon.obtainNameDictionary().get(idioma));
     }
 
     public void buscarArea(){
@@ -67,10 +70,10 @@ public class AppController {
             pokemonLocation.setText("No se encuentra en estado salvaje");//Es posible que esté vacío, corregir
         } else if (areas.size() <= currentArea + 1) {
             currentArea = 0;
-            pokemonLocation.setText(areas.get(currentArea).getName());
+            pokemonLocation.setText(areas.get(currentArea).obtainName());
             currentArea++;
         } else{
-            pokemonLocation.setText(areas.get(currentArea).getName());
+            pokemonLocation.setText(areas.get(currentArea).obtainName());
             currentArea++;
         }
 
