@@ -2,7 +2,9 @@ package edu.badpals.pokeapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ForeignName{
+import java.io.Serializable;
+
+public class ForeignName implements Serializable {
     @JsonProperty("name")
     private String name;
 

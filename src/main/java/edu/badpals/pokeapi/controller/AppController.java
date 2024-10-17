@@ -5,6 +5,7 @@ import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.model.PokemonData;
 import edu.badpals.pokeapi.service.APIPetitions;
 import edu.badpals.pokeapi.service.CacheManager;
+import edu.badpals.pokeapi.service.DocumentExporter;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,7 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -41,6 +42,15 @@ public class AppController {
     @FXML
     private Label errorMessage;
 
+    @FXML
+    private ComboBox<String> cmbFormat;
+
+    @FXML
+    private TextField pathName;
+
+    @FXML
+    private Button btnExport;
+
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
     public static int id;
@@ -54,6 +64,10 @@ public class AppController {
         ));
         languages.setValue("english");
 
+        cmbFormat.setItems(FXCollections.observableArrayList(
+                "json","xml","txt","bin"
+        ));
+        cmbFormat.setValue("json");
     }
 
 
@@ -73,7 +87,6 @@ public class AppController {
                 loadable = false;
                 cleanFields();
                 errorMessage.setVisible(true);
-
             }
         }
         if(loadable) {
@@ -88,6 +101,7 @@ public class AppController {
                 btnAnterior.setDisable(true);
                 btnSiguiente.setDisable(true);
             }
+            btnExport.setDisable(false);
             loadForeignName();
             searchArea();
         }
@@ -129,6 +143,27 @@ public class AppController {
         searchArea();
     }
 
+    public void export(){
+        String path = pathName.getText();
+        String extension = cmbFormat.getSelectionModel().getSelectedItem();
+        switch (extension){
+            case "json":
+                DocumentExporter.exportToJson(pokemonData,path);
+                break;
+            case "xml":
+                DocumentExporter.exportToXml(pokemonData,path);
+                break;
+            case "txt":
+                DocumentExporter.exportToTxt(pokemonData,path);
+                break;
+            case "bin":
+                DocumentExporter.exportToBin(pokemonData,path);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void cleanFields(){
         pokemonData = null;
         pokemon = null;
@@ -138,8 +173,10 @@ public class AppController {
         pokemonId.setText("");
         foreignName.setText("");
         pokemonName.setText("");
+        pathName.setText("");
         btnAnterior.setDisable(true);
         btnSiguiente.setDisable(true);
+        btnExport.setDisable(true);
         errorMessage.setVisible(false);
     }
 }

@@ -2,11 +2,12 @@ package edu.badpals.pokeapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Pokemon {
+public class Pokemon implements Serializable {
 
     @JsonProperty("id")
     private int id;

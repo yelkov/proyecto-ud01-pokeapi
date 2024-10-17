@@ -37,4 +37,11 @@
         <Label alignment="CENTER" minWidth="200.0" fx:id="pokemonLocation"/>
         <Button fx:id="btnSiguiente" disable="true" text="Siguiente" onAction="#getNextArea"/>
     </HBox>
+
+    <HBox alignment="CENTER" spacing="5.0" xmlns:fx="http://javafx.com/fxml">
+        <Label text="Ruta para exportar"/>
+        <TextField fx:id="pathName"/>
+        <ComboBox fx:id="cmbFormat"/>
+        <Button fx:id="btnExport" text="Exportar" disable="true" onAction="#export"/>
+    </HBox>
 </VBox>
