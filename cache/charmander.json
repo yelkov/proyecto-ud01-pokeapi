@@ -1,0 +1,91 @@
+{
+  "pokemon" : {
+    "id" : 4,
+    "name" : "charmander",
+    "names" : [ {
+      "name" : "ヒトカゲ",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Hitokage",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "파이리",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "小火龍",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Salamèche",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Glumanda",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Charmander",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Charmander",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Charmander",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "ヒトカゲ",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "小火龙",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "locationArea" : {
+      "name" : "pallet-town-area"
+    },
+    "location_area" : {
+      "name" : "pallet-town-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-route-24-area"
+    },
+    "location_area" : {
+      "name" : "kanto-route-24-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "lumiose-city-area"
+    },
+    "location_area" : {
+      "name" : "lumiose-city-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "alola-route-3-main"
+    },
+    "location_area" : {
+      "name" : "alola-route-3-main"
+    }
+  } ]
+}

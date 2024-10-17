@@ -4,12 +4,14 @@ import edu.badpals.pokeapi.model.Area;
 import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.model.PokemonData;
 import edu.badpals.pokeapi.service.APIPetitions;
+import edu.badpals.pokeapi.service.CacheManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.util.List;
 
 public class AppController {
@@ -45,7 +47,13 @@ public class AppController {
 
     @FXML
     protected void cargarPokemon() {
-        pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
+        String name = pokemonName.getText();
+        try{
+            pokemonData = CacheManager.loadCache(name);
+        } catch (IOException e){
+            pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
+            CacheManager.saveCache(pokemonData);
+        }
         pokemon = pokemonData.getPokemon();
         id = pokemon.getId();
         pokemonId.setText(String.valueOf(id));
