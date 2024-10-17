@@ -60,121 +60,70 @@
     } ]
   },
   "areas" : [ {
-    "locationArea" : {
-      "name" : "trophy-garden-area"
-    },
     "location_area" : {
       "name" : "trophy-garden-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "pallet-town-area"
-    },
     "location_area" : {
       "name" : "pallet-town-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "kanto-route-2-south-towards-viridian-city"
-    },
     "location_area" : {
       "name" : "kanto-route-2-south-towards-viridian-city"
     }
   }, {
-    "locationArea" : {
-      "name" : "viridian-forest-area"
-    },
     "location_area" : {
       "name" : "viridian-forest-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "power-plant-area"
-    },
     "location_area" : {
       "name" : "power-plant-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "hoenn-safari-zone-sw"
-    },
     "location_area" : {
       "name" : "hoenn-safari-zone-sw"
     }
   }, {
-    "locationArea" : {
-      "name" : "hoenn-safari-zone-se"
-    },
     "location_area" : {
       "name" : "hoenn-safari-zone-se"
     }
   }, {
-    "locationArea" : {
-      "name" : "kalos-route-3-area"
-    },
     "location_area" : {
       "name" : "kalos-route-3-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "santalune-forest-area"
-    },
     "location_area" : {
       "name" : "santalune-forest-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "slateport-city-contest-hall"
-    },
     "location_area" : {
       "name" : "slateport-city-contest-hall"
     }
   }, {
-    "locationArea" : {
-      "name" : "verdanturf-town-contest-hall"
-    },
     "location_area" : {
       "name" : "verdanturf-town-contest-hall"
     }
   }, {
-    "locationArea" : {
-      "name" : "fallarbor-town-contest-hall"
-    },
     "location_area" : {
       "name" : "fallarbor-town-contest-hall"
     }
   }, {
-    "locationArea" : {
-      "name" : "lilycove-city-contest-hall"
-    },
     "location_area" : {
       "name" : "lilycove-city-contest-hall"
     }
   }, {
-    "locationArea" : {
-      "name" : "alola-route-1-east"
-    },
     "location_area" : {
       "name" : "alola-route-1-east"
     }
   }, {
-    "locationArea" : {
-      "name" : "alola-route-1-west"
-    },
     "location_area" : {
       "name" : "alola-route-1-west"
     }
   }, {
-    "locationArea" : {
-      "name" : "hauoli-city-shopping-district"
-    },
     "location_area" : {
       "name" : "hauoli-city-shopping-district"
     }
   }, {
-    "locationArea" : {
-      "name" : "heahea-city-surf-association"
-    },
     "location_area" : {
       "name" : "heahea-city-surf-association"
     }

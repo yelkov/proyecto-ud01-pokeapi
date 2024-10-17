@@ -82,7 +82,7 @@ public class DocumentExporter {
                 elementAreas.appendChild(elementLocation);
                 Element elementNameLocationArea = doc.createElement("name");
                 elementLocation.appendChild(elementNameLocationArea);
-                elementNameLocationArea.appendChild(doc.createTextNode(area.getLocationArea().getName()));
+                elementNameLocationArea.appendChild(doc.createTextNode(area.getLocation_area().getName()));
             }
             Source source = new DOMSource(doc);
             Result result = new StreamResult(new File(path + ".xml"));

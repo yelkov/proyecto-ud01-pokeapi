@@ -60,37 +60,22 @@
     } ]
   },
   "areas" : [ {
-    "locationArea" : {
-      "name" : "trophy-garden-area"
-    },
     "location_area" : {
       "name" : "trophy-garden-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "johto-route-34-area"
-    },
     "location_area" : {
       "name" : "johto-route-34-area"
     }
   }, {
-    "locationArea" : {
-      "name" : "alola-route-1-east"
-    },
     "location_area" : {
       "name" : "alola-route-1-east"
     }
   }, {
-    "locationArea" : {
-      "name" : "alola-route-1-west"
-    },
     "location_area" : {
       "name" : "alola-route-1-west"
     }
   }, {
-    "locationArea" : {
-      "name" : "hauoli-city-shopping-district"
-    },
     "location_area" : {
       "name" : "hauoli-city-shopping-district"
     }

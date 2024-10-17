@@ -1,79 +1,77 @@
 {
   "pokemon" : {
-    "id" : 4,
-    "name" : "charmander",
+    "id" : 270,
+    "name" : "lotad",
     "names" : [ {
-      "name" : "ヒトカゲ",
+      "name" : "ハスボー",
       "language" : {
         "name" : "ja-Hrkt"
       }
     }, {
-      "name" : "Hitokage",
+      "name" : "Hassboh",
       "language" : {
         "name" : "roomaji"
       }
     }, {
-      "name" : "파이리",
+      "name" : "연꽃몬",
       "language" : {
         "name" : "ko"
       }
     }, {
-      "name" : "小火龍",
+      "name" : "蓮葉童子",
       "language" : {
         "name" : "zh-Hant"
       }
     }, {
-      "name" : "Salamèche",
+      "name" : "Nénupiot",
       "language" : {
         "name" : "fr"
       }
     }, {
-      "name" : "Glumanda",
+      "name" : "Loturzel",
       "language" : {
         "name" : "de"
       }
     }, {
-      "name" : "Charmander",
+      "name" : "Lotad",
       "language" : {
         "name" : "es"
       }
     }, {
-      "name" : "Charmander",
+      "name" : "Lotad",
       "language" : {
         "name" : "it"
       }
     }, {
-      "name" : "Charmander",
+      "name" : "Lotad",
       "language" : {
         "name" : "en"
       }
     }, {
-      "name" : "ヒトカゲ",
+      "name" : "ハスボー",
       "language" : {
         "name" : "ja"
       }
     }, {
-      "name" : "小火龙",
+      "name" : "莲叶童子",
       "language" : {
         "name" : "zh-Hans"
       }
     } ]
   },
   "areas" : [ {
-    "location_area" : {
-      "name" : "pallet-town-area"
-    }
+    "locationArea" : null
   }, {
-    "location_area" : {
-      "name" : "kanto-route-24-area"
-    }
+    "locationArea" : null
   }, {
-    "location_area" : {
-      "name" : "lumiose-city-area"
-    }
+    "locationArea" : null
   }, {
-    "location_area" : {
-      "name" : "alola-route-3-main"
-    }
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
   } ]
 }

@@ -60,9 +60,6 @@
     } ]
   },
   "areas" : [ {
-    "locationArea" : {
-      "name" : "sinnoh-hall-of-origin-1-area"
-    },
     "location_area" : {
       "name" : "sinnoh-hall-of-origin-1-area"
     }

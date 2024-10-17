@@ -8,7 +8,7 @@ public class Area implements Serializable {
     @JsonProperty("location_area")
     private LocationArea loc;
 
-    public LocationArea getLocationArea() {
+    public LocationArea getLocation_area() {
         return loc;
     }
 
@@ -17,7 +17,7 @@ public class Area implements Serializable {
     }
 
     public String obtainName(){
-        return getLocationArea().getName().replace("-"," ");
+        return getLocation_area().getName().replace("-"," ");
     }
 
     @Override
