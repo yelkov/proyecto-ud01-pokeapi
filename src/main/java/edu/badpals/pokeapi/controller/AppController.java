@@ -7,6 +7,7 @@ import edu.badpals.pokeapi.service.APIPetitions;
 import edu.badpals.pokeapi.service.CacheManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -30,6 +31,12 @@ public class AppController {
     @FXML
     private Label foreignName;
 
+    @FXML
+    private Button btnAnterior;
+
+    @FXML
+    private Button btnSiguiente;
+
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
     public static int id;
@@ -49,6 +56,7 @@ public class AppController {
     @FXML
     protected void cargarPokemon() {
         String name = pokemonName.getText();
+        currentArea = 0;
         try{
             pokemonData = CacheManager.loadCache(name);
         } catch (IOException e){
@@ -59,8 +67,15 @@ public class AppController {
         id = pokemon.getId();
         pokemonId.setText(String.valueOf(id));
         areas = pokemonData.getAreas();
+        if (areas.size() > 1){
+            btnAnterior.setDisable(false);
+            btnSiguiente.setDisable(false);
+        } else {
+            btnAnterior.setDisable(true);
+            btnSiguiente.setDisable(true);
+        }
         cargaNombreExtranjero();
-        buscarArea();
+        searchArea();
     }
 
     public void cargaNombreExtranjero(){
@@ -72,31 +87,39 @@ public class AppController {
         }
     }
 
-    public void buscarArea(){
+    public void searchArea(){
         try {
             if (areas.size() == 0) {
                 pokemonLocation.setText("No se encuentra en estado salvaje");//Es posible que esté vacío, corregir
-            } else if (areas.size() <= currentArea + 1) {
-                currentArea = 0;
-                pokemonLocation.setText(areas.get(currentArea).obtainName());
-                currentArea++;
             } else {
                 pokemonLocation.setText(areas.get(currentArea).obtainName());
-                currentArea++;
             }
-        }catch (NullPointerException e){
+        }catch (NullPointerException e){}
+    }
 
+    public void getNextArea(){
+        currentArea++;
+        if (areas.size() <= currentArea){
+            currentArea = 0;
         }
+        searchArea();
+    }
 
+    public void getPreviousArea(){
+        currentArea--;
+        if(currentArea < 0){
+            currentArea = areas.size() - 1;
+        }
+        searchArea();
     }
 
     public void limpiarCampos(){
         pokemonData = null;
         pokemon = null;
         areas = null;
+        currentArea = 0;
         pokemonLocation.setText("");
         pokemonId.setText("");
-        languages.setValue("english");
         foreignName.setText("");
         pokemonName.setText("");
     }

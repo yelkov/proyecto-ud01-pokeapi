@@ -1,0 +1,70 @@
+{
+  "pokemon" : {
+    "id" : 493,
+    "name" : "arceus",
+    "names" : [ {
+      "name" : "アルセウス",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Arceus",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "아르세우스",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "阿爾宙斯",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Arceus",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Arceus",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Arceus",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Arceus",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Arceus",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "アルセウス",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "阿尔宙斯",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "locationArea" : {
+      "name" : "sinnoh-hall-of-origin-1-area"
+    },
+    "location_area" : {
+      "name" : "sinnoh-hall-of-origin-1-area"
+    }
+  } ]
+}
