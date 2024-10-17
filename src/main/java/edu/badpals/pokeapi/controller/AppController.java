@@ -20,19 +20,10 @@ public class AppController {
     private Label pokemonId;
 
     @FXML
-    private Label englishName;
-
-    @FXML
-    private Label japaneseName;
-
-    @FXML
-    private Label koreanName;
-
-    @FXML
     private Label pokemonLocation;
 
     @FXML
-    private ComboBox<String> idiomas;
+    private ComboBox<String> languages;
 
     @FXML
     private Label foreignName;
@@ -45,9 +36,10 @@ public class AppController {
 
     @FXML
     private void initialize() {
-        idiomas.setItems(FXCollections.observableArrayList(
+        languages.setItems(FXCollections.observableArrayList(
                 "english","japanese","korean","french","german","simplified chinese"
         ));
+
     }
 
 
@@ -61,7 +53,7 @@ public class AppController {
     }
 
     public void cargaNombreExtranjero(){
-        String idioma = idiomas.getSelectionModel().getSelectedItem();
+        String idioma = languages.getSelectionModel().getSelectedItem();
         foreignName.setText(pokemon.obtainNameDictionary().get(idioma));
     }
 
@@ -77,5 +69,12 @@ public class AppController {
             currentArea++;
         }
 
+    }
+
+    public void limpiarCampos(){
+        pokemonLocation.setText("");
+        pokemonId.setText("");
+        foreignName.setText("");
+        pokemonName.setText("");
     }
 }

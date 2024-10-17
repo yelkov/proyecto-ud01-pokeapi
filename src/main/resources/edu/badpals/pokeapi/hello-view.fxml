@@ -17,14 +17,17 @@
     </padding>
 
     <TextField fx:id="pokemonName"/>
-    <Button text="Buscar" onAction="#cargarPokemon"/>
+    <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <Button text="Buscar" onAction="#cargarPokemon"/>
+        <Button text="Limpiar" onAction="#limpiarCampos"/>
+    </HBox>
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
         <Label text="Pokemon id:"/>
         <Label fx:id="pokemonId"/>
     </HBox>
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
         <Label text="Nombre:"/>
-        <ComboBox fx:id="idiomas" onAction="#cargaNombreExtranjero"/>
+        <ComboBox fx:id="languages" onAction="#cargaNombreExtranjero"/>
         <Label fx:id="foreignName"/>
     </HBox>
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
