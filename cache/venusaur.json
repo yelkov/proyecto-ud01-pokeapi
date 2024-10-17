@@ -1,0 +1,63 @@
+{
+  "pokemon" : {
+    "id" : 3,
+    "name" : "venusaur",
+    "names" : [ {
+      "name" : "フシギバナ",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Fushigibana",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "이상해꽃",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "妙蛙花",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Florizarre",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Bisaflor",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Venusaur",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Venusaur",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Venusaur",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "フシギバナ",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "妙蛙花",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ ]
+}
