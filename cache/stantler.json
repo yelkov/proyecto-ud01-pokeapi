@@ -1,0 +1,119 @@
+{
+  "pokemon" : {
+    "id" : 234,
+    "name" : "stantler",
+    "names" : [ {
+      "name" : "オドシシ",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Odoshishi",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "노라키",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "驚角鹿",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Cerfrousse",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Damhirplex",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Stantler",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Stantler",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Stantler",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "オドシシ",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "惊角鹿",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "locationArea" : {
+      "name" : "sinnoh-route-207-area"
+    },
+    "location_area" : {
+      "name" : "sinnoh-route-207-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-36-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-36-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-route-37-area"
+    },
+    "location_area" : {
+      "name" : "johto-route-37-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "hoenn-safari-zone-expansion-south"
+    },
+    "location_area" : {
+      "name" : "hoenn-safari-zone-expansion-south"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "hoenn-altering-cave-h"
+    },
+    "location_area" : {
+      "name" : "hoenn-altering-cave-h"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "kanto-altering-cave-h"
+    },
+    "location_area" : {
+      "name" : "kanto-altering-cave-h"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "abundant-shrine-area"
+    },
+    "location_area" : {
+      "name" : "abundant-shrine-area"
+    }
+  }, {
+    "locationArea" : {
+      "name" : "johto-safari-zone-zone-plains"
+    },
+    "location_area" : {
+      "name" : "johto-safari-zone-zone-plains"
+    }
+  } ]
+}

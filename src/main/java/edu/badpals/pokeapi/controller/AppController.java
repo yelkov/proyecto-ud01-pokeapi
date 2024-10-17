@@ -41,6 +41,7 @@ public class AppController {
         languages.setItems(FXCollections.observableArrayList(
                 "english","japanese","korean","french","german","simplified chinese"
         ));
+        languages.setValue("english");
 
     }
 
@@ -58,30 +59,44 @@ public class AppController {
         id = pokemon.getId();
         pokemonId.setText(String.valueOf(id));
         areas = pokemonData.getAreas();
+        cargaNombreExtranjero();
+        buscarArea();
     }
 
     public void cargaNombreExtranjero(){
-        String idioma = languages.getSelectionModel().getSelectedItem();
-        foreignName.setText(pokemon.obtainNameDictionary().get(idioma));
+        try {
+            String idioma = languages.getSelectionModel().getSelectedItem();
+            foreignName.setText(pokemon.obtainNameDictionary().get(idioma));
+        } catch (NullPointerException e){
+
+        }
     }
 
     public void buscarArea(){
-        if (areas.size() == 0){
-            pokemonLocation.setText("No se encuentra en estado salvaje");//Es posible que esté vacío, corregir
-        } else if (areas.size() <= currentArea + 1) {
-            currentArea = 0;
-            pokemonLocation.setText(areas.get(currentArea).obtainName());
-            currentArea++;
-        } else{
-            pokemonLocation.setText(areas.get(currentArea).obtainName());
-            currentArea++;
+        try {
+            if (areas.size() == 0) {
+                pokemonLocation.setText("No se encuentra en estado salvaje");//Es posible que esté vacío, corregir
+            } else if (areas.size() <= currentArea + 1) {
+                currentArea = 0;
+                pokemonLocation.setText(areas.get(currentArea).obtainName());
+                currentArea++;
+            } else {
+                pokemonLocation.setText(areas.get(currentArea).obtainName());
+                currentArea++;
+            }
+        }catch (NullPointerException e){
+
         }
 
     }
 
     public void limpiarCampos(){
+        pokemonData = null;
+        pokemon = null;
+        areas = null;
         pokemonLocation.setText("");
         pokemonId.setText("");
+        languages.setValue("english");
         foreignName.setText("");
         pokemonName.setText("");
     }
