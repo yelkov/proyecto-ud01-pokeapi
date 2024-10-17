@@ -2,11 +2,13 @@ package edu.badpals.pokeapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Area {
+import java.io.Serializable;
+
+public class Area implements Serializable {
     @JsonProperty("location_area")
     private LocationArea loc;
 
-    public LocationArea getLocationArea() {
+    public LocationArea getLocation_area() {
         return loc;
     }
 
@@ -14,8 +16,8 @@ public class Area {
         this.loc = loc;
     }
 
-    public String getName(){
-        return getLocationArea().getName();
+    public String obtainName(){
+        return getLocation_area().getName().replace("-"," ");
     }
 
     @Override

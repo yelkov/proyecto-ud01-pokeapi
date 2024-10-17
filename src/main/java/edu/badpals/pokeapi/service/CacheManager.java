@@ -26,15 +26,11 @@ public class CacheManager {
         }
     }
 
-    public static PokemonData loadCache(String pokemonName){
-        try{
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(new File(DIR_CACHE + pokemonName + ".json"), PokemonData.class);
-        } catch (IOException e) {
-            System.out.println("Error loading cache. ");
-            e.printStackTrace();
-        }
-        return null;
+    public static PokemonData loadCache(String pokemonName) throws IOException{
+
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(new File(DIR_CACHE + pokemonName + ".json"), PokemonData.class);
+
     }
 
 }

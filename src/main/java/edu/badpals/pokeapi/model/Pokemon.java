@@ -2,11 +2,12 @@ package edu.badpals.pokeapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Pokemon {
+public class Pokemon implements Serializable {
 
     @JsonProperty("id")
     private int id;
@@ -40,10 +41,10 @@ public class Pokemon {
         return foreignNames;
     }
 
-    public Map<String,String> getNameDictionary(){
+    public Map<String,String> obtainNameDictionary(){
         Map<String,String> dictionary = new HashMap<>();
         for (ForeignName foreignName : getForeignNames()){
-            dictionary.putIfAbsent(foreignName.getLanguageName(), foreignName.getName());
+            dictionary.putIfAbsent(foreignName.obtainLanguageName(), foreignName.getName());
         }
         return dictionary;
     }

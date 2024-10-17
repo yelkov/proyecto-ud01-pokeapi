@@ -7,6 +7,7 @@ import edu.badpals.pokeapi.model.Area;
 import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.model.PokemonData;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.net.MalformedURLException;
@@ -17,7 +18,7 @@ public class APIPetitions {
     private static final String ENCOUNTERS_URL_BEGIN = "https://pokeapi.co/api/v2/pokemon/";
     private static final String ENCOUNTERS_URL_END = "/encounters";
 
-    public static PokemonData getPokemonData(String pokemonName){
+    public static PokemonData getPokemonData(String pokemonName) throws IOException {
         Pokemon pokemon = askAPIforPokemon(pokemonName);
         List<Area> areas = askAPIforArea(pokemon.getId());
         PokemonData pokemonData = new PokemonData(pokemon,areas);
@@ -25,7 +26,7 @@ public class APIPetitions {
         return pokemonData;
     }
 
-    private static Pokemon askAPIforPokemon(String pokemonName){
+    private static Pokemon askAPIforPokemon(String pokemonName) throws IOException{
         try{
             URL jsonURL = new URL(POKEMON_URL + pokemonName);
             ObjectMapper mapper = new ObjectMapper();
@@ -36,9 +37,6 @@ public class APIPetitions {
 
         } catch (MalformedURLException e) {
             System.out.println("The URL of Pokemon is invalid");
-            e.printStackTrace();
-        }catch (IOException e) {
-            System.out.println("Error reading pokemon from jsonURL.");
             e.printStackTrace();
         }
         return null;

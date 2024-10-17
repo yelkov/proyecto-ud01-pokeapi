@@ -1,79 +1,77 @@
 {
   "pokemon" : {
-    "id" : 1,
-    "name" : "bulbasaur",
+    "id" : 270,
+    "name" : "lotad",
     "names" : [ {
-      "name" : "フシギダネ",
+      "name" : "ハスボー",
       "language" : {
         "name" : "ja-Hrkt"
       }
     }, {
-      "name" : "Fushigidane",
+      "name" : "Hassboh",
       "language" : {
         "name" : "roomaji"
       }
     }, {
-      "name" : "이상해씨",
+      "name" : "연꽃몬",
       "language" : {
         "name" : "ko"
       }
     }, {
-      "name" : "妙蛙種子",
+      "name" : "蓮葉童子",
       "language" : {
         "name" : "zh-Hant"
       }
     }, {
-      "name" : "Bulbizarre",
+      "name" : "Nénupiot",
       "language" : {
         "name" : "fr"
       }
     }, {
-      "name" : "Bisasam",
+      "name" : "Loturzel",
       "language" : {
         "name" : "de"
       }
     }, {
-      "name" : "Bulbasaur",
+      "name" : "Lotad",
       "language" : {
         "name" : "es"
       }
     }, {
-      "name" : "Bulbasaur",
+      "name" : "Lotad",
       "language" : {
         "name" : "it"
       }
     }, {
-      "name" : "Bulbasaur",
+      "name" : "Lotad",
       "language" : {
         "name" : "en"
       }
     }, {
-      "name" : "フシギダネ",
+      "name" : "ハスボー",
       "language" : {
         "name" : "ja"
       }
     }, {
-      "name" : "妙蛙种子",
+      "name" : "莲叶童子",
       "language" : {
         "name" : "zh-Hans"
       }
     } ]
   },
   "areas" : [ {
-    "location_area" : {
-      "name" : "cerulean-city-area"
-    }
+    "locationArea" : null
   }, {
-    "location_area" : {
-      "name" : "pallet-town-area"
-    }
+    "locationArea" : null
   }, {
-    "location_area" : {
-      "name" : "lumiose-city-area"
-    }
+    "locationArea" : null
   }, {
-    "location_area" : {
-      "name" : "alola-route-2-main"
-    }
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
   } ]
 }
