@@ -85,6 +85,16 @@ public class DocumentExporter {
                 elementLocation.appendChild(elementNameLocationArea);
                 elementNameLocationArea.appendChild(doc.createTextNode(area.getLocation_area().getName()));
             }
+            //creating PokemonImage element
+            Element elementImage = doc.createElement("pokemonImage");
+            root.appendChild(elementImage);
+            Element elementSprites = doc.createElement("sprites");
+            elementImage.appendChild(elementSprites);
+            Element elementDataImg = doc.createElement("front_default");
+            elementSprites.appendChild(elementDataImg);
+            elementDataImg.appendChild(doc.createTextNode(pokemonData.getPokemonImage().obtainImage()));
+
+
             Source source = new DOMSource(doc);
             Result result = new StreamResult(new File(path + ".xml"));
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
