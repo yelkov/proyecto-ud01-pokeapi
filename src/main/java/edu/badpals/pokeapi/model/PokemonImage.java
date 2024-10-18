@@ -24,4 +24,11 @@ public class PokemonImage implements Serializable {
     public String obtainImage(){
         return sprites.getFront_default();
     }
+
+    @Override
+    public String toString() {
+        return "PokemonImage{" +
+                "sprites=" + sprites +
+                '}';
+    }
 }

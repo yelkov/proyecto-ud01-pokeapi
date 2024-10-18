@@ -20,4 +20,11 @@ public class Sprites implements Serializable {
     public void setFront_default(String front_default) {
         this.front_default = front_default;
     }
+
+    @Override
+    public String toString() {
+        return "Sprites{" +
+                "front_default='" + front_default + '\'' +
+                '}';
+    }
 }
