@@ -9,6 +9,7 @@ import edu.badpals.pokeapi.model.PokemonData;
 import java.io.File;
 import java.io.IOException;
 import java.lang.runtime.ObjectMethods;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,4 +34,21 @@ public class CacheManager {
 
     }
 
+    public static void deleteCache() throws  IOException{
+        File cacheDirectory = new File(DIR_CACHE);
+
+        if(cacheDirectory.exists() && cacheDirectory.isDirectory()){
+
+            File[] cacheFiles = cacheDirectory.listFiles();
+            if (cacheFiles != null){
+                for (File file : cacheFiles){
+                    if (file.isFile()){
+                        file.delete();
+                    }
+                }
+            }
+        }else{
+            throw new IOException("Cache directory does not exist: " + DIR_CACHE);
+        }
+    }
 }
