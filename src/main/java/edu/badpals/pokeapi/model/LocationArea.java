@@ -2,7 +2,9 @@ package edu.badpals.pokeapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class LocationArea {
+import java.io.Serializable;
+
+public class LocationArea implements Serializable {
     @JsonProperty("name")
     private String name;
 
