@@ -44,4 +44,5 @@
         <ComboBox fx:id="cmbFormat"/>
         <Button fx:id="btnExport" text="Exportar" disable="true" onAction="#export"/>
     </HBox>
+    <Label fx:id="exportMessage" text=""/>
 </VBox>

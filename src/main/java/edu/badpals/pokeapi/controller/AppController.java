@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -50,6 +51,9 @@ public class AppController {
 
     @FXML
     private Button btnExport;
+
+    @FXML
+    private Label exportMessage;
 
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
@@ -143,26 +147,33 @@ public class AppController {
         searchArea();
     }
 
-    public void export(){
+    public void export() {
         String path = pathName.getText();
         String extension = cmbFormat.getSelectionModel().getSelectedItem();
-        switch (extension){
+        boolean isExportOk = false;
+        switch (extension) {
             case "json":
-                DocumentExporter.exportToJson(pokemonData,path);
+                isExportOk = DocumentExporter.exportToJson(pokemonData, path);
                 break;
             case "xml":
-                DocumentExporter.exportToXml(pokemonData,path);
+                isExportOk = DocumentExporter.exportToXml(pokemonData, path);
                 break;
             case "txt":
-                DocumentExporter.exportToTxt(pokemonData,path);
+                isExportOk = DocumentExporter.exportToTxt(pokemonData, path);
                 break;
             case "bin":
-                DocumentExporter.exportToBin(pokemonData,path);
+                isExportOk = DocumentExporter.exportToBin(pokemonData, path);
                 break;
             default:
                 break;
         }
+        if (isExportOk){
+            exportMessage.setText("La exportación se ha realizado correctamente");
+        } else {
+            exportMessage.setText("Error al realizar la exportación");
+        }
     }
+
 
     public void cleanFields(){
         pokemonData = null;
@@ -178,5 +189,6 @@ public class AppController {
         btnSiguiente.setDisable(true);
         btnExport.setDisable(true);
         errorMessage.setVisible(false);
+        exportMessage.setText("");
     }
 }

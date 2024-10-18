@@ -17,33 +17,34 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 
 public class DocumentExporter {
-    public static void exportToJson(PokemonData pokemonData, String path){
+    public static boolean exportToJson(PokemonData pokemonData, String path){
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(path + ".json"),pokemonData);
         } catch (IOException e) {
-            System.out.println("Error exporting json to " + path);
-            e.printStackTrace();
+            return false;
         }
+        return true;
     }
-    public static void exportToBin(PokemonData pokemonData, String path){
+    public static boolean exportToBin(PokemonData pokemonData, String path){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path + ".bin"))){
             oos.writeObject(pokemonData);
         }catch (IOException e){
-            System.out.println("Error exporting .bin to " + path);
-            e.printStackTrace();
+            return false;
         }
+        return true;
     }
-    public static void exportToTxt(PokemonData pokemonData, String path){
+    public static boolean exportToTxt(PokemonData pokemonData, String path){
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(path + ".txt"))){
             String pokemonText = pokemonData.toString();
             bw.write(pokemonText);
         }catch (IOException e){
-            System.out.println("Error exporting .txt to " + path);
+            return false;
         }
+        return true;
     }
 
-    public static void exportToXml(PokemonData pokemonData, String path){
+    public static boolean exportToXml(PokemonData pokemonData, String path){
         try{
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbf.newDocumentBuilder();
@@ -91,8 +92,8 @@ public class DocumentExporter {
             transformer.transform(source,result);
 
         } catch (ParserConfigurationException | TransformerException e) {
-            System.out.println("Error exporting .xml to " + path);
-            e.printStackTrace();
+            return false;
         }
+        return true;
     }
 }

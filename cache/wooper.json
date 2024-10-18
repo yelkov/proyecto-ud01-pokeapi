@@ -1,0 +1,147 @@
+{
+  "pokemon" : {
+    "id" : 194,
+    "name" : "wooper",
+    "names" : [ {
+      "name" : "ウパー",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Upah",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "우파",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "烏波",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Axoloto",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Felino",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Wooper",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Wooper",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Wooper",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "ウパー",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "乌波",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "location_area" : {
+      "name" : "great-marsh-area-1"
+    }
+  }, {
+    "location_area" : {
+      "name" : "great-marsh-area-2"
+    }
+  }, {
+    "location_area" : {
+      "name" : "great-marsh-area-3"
+    }
+  }, {
+    "location_area" : {
+      "name" : "great-marsh-area-4"
+    }
+  }, {
+    "location_area" : {
+      "name" : "great-marsh-area-5"
+    }
+  }, {
+    "location_area" : {
+      "name" : "great-marsh-area-6"
+    }
+  }, {
+    "location_area" : {
+      "name" : "sinnoh-route-212-east-towards-pastoria-city"
+    }
+  }, {
+    "location_area" : {
+      "name" : "johto-route-32-area"
+    }
+  }, {
+    "location_area" : {
+      "name" : "ruins-of-alph-outside"
+    }
+  }, {
+    "location_area" : {
+      "name" : "union-cave-1f"
+    }
+  }, {
+    "location_area" : {
+      "name" : "union-cave-b1f"
+    }
+  }, {
+    "location_area" : {
+      "name" : "johto-route-47-cave-gate"
+    }
+  }, {
+    "location_area" : {
+      "name" : "johto-route-47-inside-cave"
+    }
+  }, {
+    "location_area" : {
+      "name" : "hoenn-safari-zone-expansion-south"
+    }
+  }, {
+    "location_area" : {
+      "name" : "icefall-cave-entrance"
+    }
+  }, {
+    "location_area" : {
+      "name" : "ruin-valley-area"
+    }
+  }, {
+    "location_area" : {
+      "name" : "four-island-area"
+    }
+  }, {
+    "location_area" : {
+      "name" : "violet-city-pokemon-center"
+    }
+  }, {
+    "location_area" : {
+      "name" : "johto-safari-zone-zone-meadow"
+    }
+  }, {
+    "location_area" : {
+      "name" : "johto-safari-zone-zone-marshland"
+    }
+  }, {
+    "location_area" : {
+      "name" : "johto-safari-zone-zone-wetland"
+    }
+  } ]
+}
