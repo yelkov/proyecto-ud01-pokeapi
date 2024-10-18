@@ -1,26 +1,35 @@
 package edu.badpals.pokeapi.service;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.badpals.pokeapi.model.PokemonData;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class StateManager {
-    private static final String LAST_STATE_PATH =".appData/lastState.json";
+    private static final String LAST_STATE_DIR =".appData/";
 
-    public static void saveState(PokemonData currentState){
-        try{
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(LAST_STATE_PATH),currentState);
+    public static void saveState(PokemonData currentState, String username){
+        try(ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(LAST_STATE_DIR + "lastState_" + username + ".bin"))){
+            writer.writeObject(currentState);
         } catch (IOException e) {
             System.out.println("Error saving current state");
             e.printStackTrace();
         }
     }
 
-    public static PokemonData loadLastState() throws IOException{
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(new File(LAST_STATE_PATH),PokemonData.class);
+    public static PokemonData loadLastState(String username) {
+        try (ObjectInputStream reader = new ObjectInputStream(new FileInputStream(LAST_STATE_DIR + "lastState_" + username + ".bin"))) {
+            while (true) {
+                try {
+                    Object o = reader.readObject();
+                    if (o instanceof PokemonData) {
+                        return (PokemonData) o;
+                    }
+                } catch (EOFException e) {
+                    break;
+                }
+            }
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error loading last state: " + e.getMessage());
+        }
+        return null;
     }
 }
