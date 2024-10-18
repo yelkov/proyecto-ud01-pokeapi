@@ -74,6 +74,9 @@ public class AppController {
     @FXML
     private Label logInStatus;
 
+    @FXML
+    private HBox passwordConfirm;
+
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
     public static int id;
@@ -169,7 +172,15 @@ public class AppController {
     public void showlogIn(){
         loginFields.setManaged(true);
         loginFields.setVisible(true);
+        passwordConfirm.setManaged(false);
+        passwordConfirm.setVisible(false);
+    }
 
+    public void showRegister(){
+        loginFields.setManaged(true);
+        loginFields.setVisible(true);
+        passwordConfirm.setManaged(true);
+        passwordConfirm.setVisible(true);
     }
 
     public void checkLogIn(){
