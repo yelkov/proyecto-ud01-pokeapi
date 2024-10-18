@@ -60,7 +60,7 @@ public class AppController {
     private VBox logInArea;
 
     @FXML
-    private HBox exportArea;
+    private VBox exportArea;
 
     @FXML
     private TextField userName;
@@ -179,12 +179,24 @@ public class AppController {
             logInArea.setManaged(false);
             exportArea.setManaged(true);
             exportArea.setVisible(true);
+            logInStatus.setManaged(false);
+            logInStatus.setVisible(false);
+            userName.setText("");
+            password.setText("");
         } else {
             logInStatus.setManaged(true);
             logInStatus.setVisible(true);
         }
-
     }
+
+    public void logOut(){
+        logInArea.setVisible(true);
+        logInArea.setManaged(true);
+        exportArea.setManaged(false);
+        exportArea.setVisible(false);
+    }
+
+
 
     public void export() {
         String path = pathName.getText();

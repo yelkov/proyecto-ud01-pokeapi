@@ -40,13 +40,17 @@
     </HBox>
 
     <Label text="Exportar"/>
-    <HBox fx:id="exportArea" alignment="CENTER" spacing="5.0" managed="false" visible="false" xmlns:fx="http://javafx.com/fxml">
-        <Label text="Ruta para exportar"/>
-        <TextField fx:id="pathName"/>
-        <ComboBox fx:id="cmbFormat"/>
-        <Button fx:id="btnExport" text="Exportar" disable="true" onAction="#export"/>
-    </HBox>
-    <Label fx:id="exportMessage" text=""/>
+    <VBox fx:id="exportArea" alignment="CENTER" spacing="5.0" managed="false" visible="false" xmlns:fx="http://javafx.com/fxml">
+        <HBox spacing="10.0">
+            <Label text="Ruta para exportar"/>
+            <TextField fx:id="pathName"/>
+            <ComboBox fx:id="cmbFormat"/>
+            <Button fx:id="btnExport" text="Exportar" disable="true" onAction="#export"/>
+        </HBox>
+        <Label fx:id="exportMessage" text=""/>
+        <Button fx:id="btnLogOut" text="Log Out" onAction="#logOut"/>
+    </VBox>
+
     <VBox fx:id="logInArea" alignment="CENTER" spacing="5.0" managed="true" xmlns:fx="http://javafx.com/fxml">
         <Label text="Es necesario estar registrado para exportar la información"/>
         <HBox alignment="CENTER" spacing="10.0">
