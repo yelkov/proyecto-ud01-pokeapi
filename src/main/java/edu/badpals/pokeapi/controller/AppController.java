@@ -1,5 +1,7 @@
 package edu.badpals.pokeapi.controller;
 
+import edu.badpals.pokeapi.Application;
+import edu.badpals.pokeapi.auth.LogInManager;
 import edu.badpals.pokeapi.model.Area;
 import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.model.PokemonData;
@@ -8,10 +10,9 @@ import edu.badpals.pokeapi.service.CacheManager;
 import edu.badpals.pokeapi.service.DocumentExporter;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -54,6 +55,24 @@ public class AppController {
 
     @FXML
     private Label exportMessage;
+
+    @FXML
+    private VBox logInArea;
+
+    @FXML
+    private HBox exportArea;
+
+    @FXML
+    private TextField userName;
+
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private VBox loginFields;
+
+    @FXML
+    private Label logInStatus;
 
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
@@ -145,6 +164,26 @@ public class AppController {
             currentArea = areas.size() - 1;
         }
         searchArea();
+    }
+
+    public void showlogIn(){
+        loginFields.setManaged(true);
+        loginFields.setVisible(true);
+
+    }
+
+    public void checkLogIn(){
+        boolean isLogInValid = LogInManager.authenticate(userName.getText(), password.getText());
+        if (isLogInValid) {
+            logInArea.setVisible(false);
+            logInArea.setManaged(false);
+            exportArea.setManaged(true);
+            exportArea.setVisible(true);
+        } else {
+            logInStatus.setManaged(true);
+            logInStatus.setVisible(true);
+        }
+
     }
 
     public void export() {
