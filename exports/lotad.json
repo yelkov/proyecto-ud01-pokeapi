@@ -1,0 +1,77 @@
+{
+  "pokemon" : {
+    "id" : 270,
+    "name" : "lotad",
+    "names" : [ {
+      "name" : "ハスボー",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Hassboh",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "연꽃몬",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "蓮葉童子",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Nénupiot",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Loturzel",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Lotad",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Lotad",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Lotad",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "ハスボー",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "莲叶童子",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  }, {
+    "locationArea" : null
+  } ]
+}
