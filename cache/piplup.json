@@ -1,0 +1,80 @@
+{
+  "pokemon" : {
+    "id" : 393,
+    "name" : "piplup",
+    "names" : [ {
+      "name" : "ポッチャマ",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Pochama",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "팽도리",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "波加曼",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Tiplouf",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Plinfa",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Piplup",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Piplup",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Piplup",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "ポッチャマ",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "波加曼",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "location_area" : {
+      "name" : "lake-verity-before-galactic-intervention"
+    }
+  }, {
+    "location_area" : {
+      "name" : "sinnoh-route-201-area"
+    }
+  }, {
+    "location_area" : {
+      "name" : "hoenn-route-101-area"
+    }
+  } ],
+  "pokemonImage" : {
+    "sprites" : {
+      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/393.png"
+    }
+  }
+}

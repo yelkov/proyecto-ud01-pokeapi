@@ -1,5 +1,6 @@
 package edu.badpals.pokeapi;
 
+import edu.badpals.pokeapi.controller.AppController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +18,9 @@ public class Application extends javafx.application.Application {
         stage.setTitle("Pokemon Searcher");
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest( e -> {
+            AppController.saveState();
+        });
     }
 
     public static void main(String[] args) {

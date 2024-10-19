@@ -1,0 +1,68 @@
+{
+  "pokemon" : {
+    "id" : 135,
+    "name" : "jolteon",
+    "names" : [ {
+      "name" : "サンダース",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Thunders",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "쥬피썬더",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "雷伊布",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Voltali",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Blitza",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Jolteon",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Jolteon",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Jolteon",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "サンダース",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "雷伊布",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ ],
+  "pokemonImage" : {
+    "sprites" : {
+      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png"
+    }
+  }
+}

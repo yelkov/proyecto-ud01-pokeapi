@@ -8,6 +8,7 @@ import edu.badpals.pokeapi.model.PokemonData;
 import edu.badpals.pokeapi.service.APIPetitions;
 import edu.badpals.pokeapi.service.CacheManager;
 import edu.badpals.pokeapi.service.DocumentExporter;
+import edu.badpals.pokeapi.service.StateManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -92,6 +93,7 @@ public class AppController {
     public static int id;
     public static List<Area> areas;
     public static int currentArea = 0;
+    public static String currentUsername = null;
 
     @FXML
     private void initialize() {
@@ -126,23 +128,26 @@ public class AppController {
             }
         }
         if(loadable) {
-            pokemon = pokemonData.getPokemon();
-            id = pokemon.getId();
-            pokemonId.setText(String.valueOf(id));
-            areas = pokemonData.getAreas();
-            if (areas.size() > 1) {
-                btnAnterior.setDisable(false);
-                btnSiguiente.setDisable(false);
-            } else {
-                btnAnterior.setDisable(true);
-                btnSiguiente.setDisable(true);
-            }
-            btnExport.setDisable(false);
-            loadForeignName();
-            searchArea();
+            printPokemonInfo();
         }
         }
 
+    public void printPokemonInfo(){
+        pokemon = pokemonData.getPokemon();
+        id = pokemon.getId();
+        pokemonId.setText(String.valueOf(id));
+        areas = pokemonData.getAreas();
+        if (areas.size() > 1) {
+            btnAnterior.setDisable(false);
+            btnSiguiente.setDisable(false);
+        } else {
+            btnAnterior.setDisable(true);
+            btnSiguiente.setDisable(true);
+        }
+        btnExport.setDisable(false);
+        loadForeignName();
+        searchArea();
+    }
 
     public void loadForeignName(){
         try {
@@ -204,7 +209,12 @@ public class AppController {
     public void checkLogIn(){
         boolean isLogInValid = LogInManager.authenticate(userName.getText(), password.getText());
         if (isLogInValid) {
+            pokemonData = StateManager.loadLastState(userName.getText());
             initLogIn();
+            try {
+                printPokemonInfo();
+            } catch (NullPointerException e){}
+                //si no pudo cargar el pokemon, no se carga
         } else {
             password.setText("");
             logInStatus.setManaged(true);
@@ -234,6 +244,7 @@ public class AppController {
     }
 
     public void initLogIn(){
+        currentUsername = userName.getText();
         logInArea.setVisible(false);
         logInArea.setManaged(false);
         exportArea.setManaged(true);
@@ -250,7 +261,10 @@ public class AppController {
         exportArea.setVisible(false);
         logInArea.setVisible(true);
         logInArea.setManaged(true);
+        AppController.saveState();
+        currentUsername = null;
         showlogIn();
+        cleanFields();
     }
 
 
@@ -306,6 +320,12 @@ public class AppController {
         } catch (IOException e){
             System.out.println("Error al borrar la caché");
         }
-
     }
+
+    public static void saveState(){
+        if ((currentUsername != null)){
+            StateManager.saveState(pokemonData, currentUsername);
+        }
+    }
+
 }
