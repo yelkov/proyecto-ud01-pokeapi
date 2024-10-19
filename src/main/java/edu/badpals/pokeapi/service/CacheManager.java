@@ -8,7 +8,11 @@ import edu.badpals.pokeapi.model.PokemonData;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.runtime.ObjectMethods;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +24,12 @@ public class CacheManager {
         try{
             ObjectMapper mapper = new ObjectMapper();
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(DIR_CACHE + data.getPokemon().getName() + ".json"),data);
+
+            URL imageURL = new URL(data.getPokemonImage().obtainImage());
+            try(InputStream in = imageURL.openStream();){
+                Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_image.png"));
+            }
+
         }catch (IOException e){
             System.out.println("Error saving cache.");
             e.printStackTrace();
@@ -33,4 +43,26 @@ public class CacheManager {
 
     }
 
+    public static String loadImageCache(String pokemonName){
+        String pokemonImage = "file:" + DIR_CACHE + pokemonName + "_image.png";
+        return pokemonImage;
+    }
+
+    public static void deleteCache() throws  IOException{
+        File cacheDirectory = new File(DIR_CACHE);
+
+        if(cacheDirectory.exists() && cacheDirectory.isDirectory()){
+
+            File[] cacheFiles = cacheDirectory.listFiles();
+            if (cacheFiles != null){
+                for (File file : cacheFiles){
+                    if (file.isFile()){
+                        file.delete();
+                    }
+                }
+            }
+        }else{
+            throw new IOException("Cache directory does not exist: " + DIR_CACHE);
+        }
+    }
 }

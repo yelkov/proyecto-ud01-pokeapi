@@ -7,13 +7,15 @@ public class PokemonData implements Serializable {
     private static final  long serialVersionUID = 1L;
     private Pokemon pokemon;
     private List<Area> areas;
+    private PokemonImage pokemonImage;
 
     public PokemonData() {
     }
 
-    public PokemonData(Pokemon pokemon, List<Area> areas) {
+    public PokemonData(Pokemon pokemon, List<Area> areas, PokemonImage pokemonData) {
         this.pokemon = pokemon;
         this.areas = areas;
+        this.pokemonImage = pokemonData;
     }
 
     public Pokemon getPokemon() {
@@ -32,11 +34,20 @@ public class PokemonData implements Serializable {
         this.areas = areas;
     }
 
+    public PokemonImage getPokemonImage() {
+        return pokemonImage;
+    }
+
+    public void setPokemonImage(PokemonImage pokemonImage) {
+        this.pokemonImage = pokemonImage;
+    }
+
     @Override
     public String toString() {
         return "PokemonData{" +
-                "pokemon=" + pokemon +
+                "pokemonImage=" + pokemonImage +
                 ", areas=" + areas +
+                ", pokemon=" + pokemon +
                 '}';
     }
 }
