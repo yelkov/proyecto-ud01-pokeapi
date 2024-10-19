@@ -12,25 +12,25 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.ImageView?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+
+<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
       fx:controller="edu.badpals.pokeapi.controller.AppController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-
+    <ImageView fx:id="logo" fitWidth="300" fitHeight="120"/>
 
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
         <TextField fx:id="pokemonName" maxWidth="200.0"/>
         <Button text="Buscar" onAction="#loadPokemon"/>
         <Button text="Limpiar" onAction="#cleanFields"/>
         <Button text="Borrar Caché" onAction="#deleteCache"/>
-
     </HBox>
-    <Label fx:id="errorMessage" text="Error al cargar los datos del pokemon" visible="false"/>
-    <ImageView fx:id="pokemonImage"/>
+    <Label fx:id="errorMessage" text="Error al cargar los datos del pokemon" managed="false" visible="false"/>
+    <ImageView fx:id="pokemonImage" managed="false" visible="false"/>
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
-        <Label fx:id="currentPokemonName"/>
+        <Label fx:id="currentPokemonName" visible="false" managed="false"/>
     </HBox>
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
         <Label text="Pokemon id:"/>
@@ -43,9 +43,9 @@
     </HBox>
     <Label text="Location:"/>
     <HBox alignment="CENTER" spacing="5.0" xmlns:fx="http://javafx.com/fxml">
-        <Button fx:id="btnAnterior" disable="true" text="&lt;" onAction="#getPreviousArea"/>
+        <Button fx:id="btnAnterior" disable="true" text="&lt;" styleClass="small-button" onAction="#getPreviousArea"/>
         <Label alignment="CENTER" minWidth="200.0" fx:id="pokemonLocation"/>
-        <Button fx:id="btnSiguiente" disable="true" text="&gt;" onAction="#getNextArea"/>
+        <Button fx:id="btnSiguiente" disable="true" text="&gt;" styleClass="small-button" onAction="#getNextArea"/>
     </HBox>
 
     <Label text="Exportar"/>

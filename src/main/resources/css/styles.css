@@ -74,17 +74,12 @@ ImageView {
 }
 
 
-#pokemonTitleName{
-    -fx-font-family: 'Pixelify Sans';
+#currentPokemonName{
+    -fx-font-family: 'Pokemon GB';
     -fx-text-fill: #3B4CCA;
     -fx-font-size: 30;
 }
 
-
-@font-face{
-            font-family: "Pixelify Sans";
-            src: url('D:\dam\2º\AD\PokeAPIprueba\proyecto-ud01-pokeapi\src\main\resources\fonts\PixelifySans-VariableFont_wght.ttf');
-}
 
 .small-button {
     -fx-background-color: #3B4CCA;

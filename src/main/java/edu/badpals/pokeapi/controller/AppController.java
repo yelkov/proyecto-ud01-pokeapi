@@ -95,6 +95,9 @@ public class AppController {
     @FXML
     private ImageView pokemonImage;
 
+    @FXML
+    private ImageView logo;
+
 
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
@@ -114,13 +117,14 @@ public class AppController {
                 "json","xml","txt","bin"
         ));
         cmbFormat.setValue("json");
+        logo.setImage(new Image("file:src/main/resources/images/pokeapi.png"));
     }
 
 
     @FXML
     protected void loadPokemon() {
         Boolean loadable = true;
-        String name = pokemonName.getText();
+        String name = pokemonName.getText().toLowerCase();
         errorMessage.setVisible(false);
         currentArea = 0;
         try{
@@ -128,7 +132,7 @@ public class AppController {
         } catch (IOException e){
             try {
                 if (!name.equals("")) {
-                    pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
+                    pokemonData = APIPetitions.getPokemonData(name);
                     CacheManager.saveCache(pokemonData);
                 } else {
                     loadable = false;
@@ -138,6 +142,7 @@ public class AppController {
                 loadable = false;
                 cleanFields();
                 errorMessage.setVisible(true);
+                errorMessage.setManaged(true);
             }
         }
         if(loadable) {
@@ -148,8 +153,12 @@ public class AppController {
     public void printPokemonInfo(){
         pokemon = pokemonData.getPokemon();
         id = pokemon.getId();
-        currentPokemonName.setText(pokemon.getName());
+        currentPokemonName.setVisible(true);
+        currentPokemonName.setManaged(true);
+        currentPokemonName.setText(pokemon.getName().toUpperCase());
         pokemonId.setText(String.valueOf(id));
+        pokemonImage.setManaged(true);
+        pokemonImage.setVisible(true);
         pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
         areas = pokemonData.getAreas();
         if (areas.size() > 1) {
@@ -318,6 +327,8 @@ public class AppController {
         areas = null;
         currentArea = 0;
         currentPokemonName.setText("");
+        currentPokemonName.setVisible(false);
+        currentPokemonName.setManaged(false);
         pokemonLocation.setText("");
         pokemonId.setText("");
         foreignName.setText("");
@@ -327,7 +338,10 @@ public class AppController {
         btnSiguiente.setDisable(true);
         btnExport.setDisable(true);
         errorMessage.setVisible(false);
+        errorMessage.setManaged(false);
         exportMessage.setText("");
+        pokemonImage.setManaged(false);
+        pokemonImage.setVisible(false);
         pokemonImage.setImage(new Image("file: "));
     }
 
