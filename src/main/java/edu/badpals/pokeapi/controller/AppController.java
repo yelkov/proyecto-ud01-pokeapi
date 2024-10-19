@@ -77,6 +77,16 @@ public class AppController {
     @FXML
     private HBox passwordConfirm;
 
+    @FXML
+    private Button btnCheckLogIn;
+
+    @FXML
+    private Button btnCheckRegister;
+
+    @FXML
+    private TextField passwordRepeated;
+
+
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
     public static int id;
@@ -174,6 +184,10 @@ public class AppController {
         loginFields.setVisible(true);
         passwordConfirm.setManaged(false);
         passwordConfirm.setVisible(false);
+        btnCheckLogIn.setManaged(true);
+        btnCheckLogIn.setVisible(true);
+        btnCheckRegister.setManaged(false);
+        btnCheckRegister.setVisible(false);
     }
 
     public void showRegister(){
@@ -181,30 +195,62 @@ public class AppController {
         loginFields.setVisible(true);
         passwordConfirm.setManaged(true);
         passwordConfirm.setVisible(true);
+        btnCheckLogIn.setManaged(false);
+        btnCheckLogIn.setVisible(false);
+        btnCheckRegister.setManaged(true);
+        btnCheckRegister.setVisible(true);
     }
 
     public void checkLogIn(){
         boolean isLogInValid = LogInManager.authenticate(userName.getText(), password.getText());
         if (isLogInValid) {
-            logInArea.setVisible(false);
-            logInArea.setManaged(false);
-            exportArea.setManaged(true);
-            exportArea.setVisible(true);
-            logInStatus.setManaged(false);
-            logInStatus.setVisible(false);
-            userName.setText("");
-            password.setText("");
+            initLogIn();
         } else {
+            password.setText("");
             logInStatus.setManaged(true);
             logInStatus.setVisible(true);
         }
     }
 
+    public void checkRegister(){
+        boolean isRegisterValid = LogInManager.signUp(userName.getText(), password.getText());
+        System.out.println(userName.getText());
+        boolean isPasswordSame = password.getText().equals(passwordRepeated.getText());
+        if (isRegisterValid && isPasswordSame){
+            initLogIn();
+        } else if (!isPasswordSame) {
+            logInStatus.setManaged(true);
+            logInStatus.setVisible(true);
+            logInStatus.setText("Las contraseñas no coinciden");
+            password.setText("");
+            passwordRepeated.setText("");
+        } else if (!isRegisterValid) {
+            logInStatus.setManaged(true);
+            logInStatus.setVisible(true);
+            logInStatus.setText("El usuario ya se halla registrado en la aplicación");
+            password.setText("");
+            passwordRepeated.setText("");
+        }
+    }
+
+    public void initLogIn(){
+        logInArea.setVisible(false);
+        logInArea.setManaged(false);
+        exportArea.setManaged(true);
+        exportArea.setVisible(true);
+        logInStatus.setManaged(false);
+        logInStatus.setVisible(false);
+        userName.setText("");
+        password.setText("");
+        passwordRepeated.setText("");
+    }
+
     public void logOut(){
-        logInArea.setVisible(true);
-        logInArea.setManaged(true);
         exportArea.setManaged(false);
         exportArea.setVisible(false);
+        logInArea.setVisible(true);
+        logInArea.setManaged(true);
+        showlogIn();
     }
 
 

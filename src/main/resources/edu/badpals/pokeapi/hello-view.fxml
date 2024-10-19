@@ -11,6 +11,7 @@
 <?import java.lang.String?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.ImageView?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="edu.badpals.pokeapi.controller.AppController">
     <padding>
@@ -72,7 +73,7 @@
             </HBox>
             <Label fx:id="logInStatus" managed="false" visible="false" text="Usuario o contraseña no válidos"/>
             <Button fx:id="btnCheckLogIn" text="Entrar" managed="false" visible="false" onAction="#checkLogIn" />
-            <Button fx:id="btnCheckRegister" text="Registrarse" managed="false" visible="false" onAction="#checkLogIn" />
+            <Button fx:id="btnCheckRegister" text="Confirmar" managed="false" visible="false" onAction="#checkRegister" />
         </VBox>
     </VBox>
 
