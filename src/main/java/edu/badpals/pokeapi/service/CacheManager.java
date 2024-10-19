@@ -44,7 +44,7 @@ public class CacheManager {
     }
 
     public static String loadImageCache(String pokemonName){
-        String pokemonImage = DIR_CACHE + pokemonName + "_image.png";
+        String pokemonImage = "file:" + DIR_CACHE + pokemonName + "_image.png";
         return pokemonImage;
     }
 
