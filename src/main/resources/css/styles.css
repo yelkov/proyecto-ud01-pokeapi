@@ -1,0 +1,96 @@
+/* styles.css */
+
+/* Estilo para el fondo de la aplicación */
+.root {
+    -fx-background-color: #FFCB05; /* Color amarillo característico de Pokémon */
+}
+
+/* Estilo para el VBox principal */
+VBox {
+    -fx-padding: 20;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+
+/* Estilo para los botones */
+Button {
+    -fx-background-color: #3B4CCA; /* Azul oscuro típico de Pokémon */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 10 20 10 20;
+}
+
+/* Efecto al pasar el ratón sobre los botones */
+Button:hover {
+    -fx-background-color: #2A37A0;
+}
+
+/* Estilo para los TextFields */
+TextField {
+    -fx-background-color: white;
+    -fx-border-color: #3B4CCA;
+    -fx-border-width: 2px;
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+/* Estilo para los Labels */
+Label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #3B4CCA;
+    -fx-font-weight: bold;
+}
+
+/* Estilo para el ComboBox */
+ComboBox {
+    -fx-background-color: white;
+    -fx-border-color: #3B4CCA;
+    -fx-border-width: 2px;
+    -fx-font-size: 14px;
+    -fx-padding: 5;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+/* Estilo para el ImageView */
+ImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0);
+}
+
+/* Estilo para mensajes de error */
+.error-label {
+    -fx-text-fill: red;
+    -fx-font-size: 14px;
+}
+
+/* Estilo para mensajes de exportación */
+.export-label {
+    -fx-text-fill: green;
+    -fx-font-size: 14px;
+}
+
+
+#pokemonTitleName{
+    -fx-font-family: 'Pixelify Sans';
+    -fx-text-fill: #3B4CCA;
+    -fx-font-size: 30;
+}
+
+
+@font-face{
+            font-family: "Pixelify Sans";
+            src: url('D:\dam\2º\AD\PokeAPIprueba\proyecto-ud01-pokeapi\src\main\resources\fonts\PixelifySans-VariableFont_wght.ttf');
+}
+
+.small-button {
+    -fx-background-color: #3B4CCA;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 5 10 5 10;
+}

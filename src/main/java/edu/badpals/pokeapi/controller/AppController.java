@@ -8,9 +8,12 @@ import edu.badpals.pokeapi.model.PokemonData;
 import edu.badpals.pokeapi.service.APIPetitions;
 import edu.badpals.pokeapi.service.CacheManager;
 import edu.badpals.pokeapi.service.DocumentExporter;
+import edu.badpals.pokeapi.service.StateManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -77,11 +80,28 @@ public class AppController {
     @FXML
     private HBox passwordConfirm;
 
+    @FXML
+    private Button btnCheckLogIn;
+
+    @FXML
+    private Button btnCheckRegister;
+
+    @FXML
+    private TextField passwordRepeated;
+
+    @FXML
+    private Label currentPokemonName;
+
+    @FXML
+    private ImageView pokemonImage;
+
+
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
     public static int id;
     public static List<Area> areas;
     public static int currentArea = 0;
+    public static String currentUsername = null;
 
     @FXML
     private void initialize() {
@@ -107,8 +127,13 @@ public class AppController {
             pokemonData = CacheManager.loadCache(name);
         } catch (IOException e){
             try {
-                pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
-                CacheManager.saveCache(pokemonData);
+                if (!name.equals("")) {
+                    pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
+                    CacheManager.saveCache(pokemonData);
+                } else {
+                    loadable = false;
+                }
+
             } catch (IOException notFound){
                 loadable = false;
                 cleanFields();
@@ -116,23 +141,28 @@ public class AppController {
             }
         }
         if(loadable) {
-            pokemon = pokemonData.getPokemon();
-            id = pokemon.getId();
-            pokemonId.setText(String.valueOf(id));
-            areas = pokemonData.getAreas();
-            if (areas.size() > 1) {
-                btnAnterior.setDisable(false);
-                btnSiguiente.setDisable(false);
-            } else {
-                btnAnterior.setDisable(true);
-                btnSiguiente.setDisable(true);
-            }
-            btnExport.setDisable(false);
-            loadForeignName();
-            searchArea();
+            printPokemonInfo();
         }
         }
 
+    public void printPokemonInfo(){
+        pokemon = pokemonData.getPokemon();
+        id = pokemon.getId();
+        currentPokemonName.setText(pokemon.getName());
+        pokemonId.setText(String.valueOf(id));
+        pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
+        areas = pokemonData.getAreas();
+        if (areas.size() > 1) {
+            btnAnterior.setDisable(false);
+            btnSiguiente.setDisable(false);
+        } else {
+            btnAnterior.setDisable(true);
+            btnSiguiente.setDisable(true);
+        }
+        btnExport.setDisable(false);
+        loadForeignName();
+        searchArea();
+    }
 
     public void loadForeignName(){
         try {
@@ -174,6 +204,10 @@ public class AppController {
         loginFields.setVisible(true);
         passwordConfirm.setManaged(false);
         passwordConfirm.setVisible(false);
+        btnCheckLogIn.setManaged(true);
+        btnCheckLogIn.setVisible(true);
+        btnCheckRegister.setManaged(false);
+        btnCheckRegister.setVisible(false);
     }
 
     public void showRegister(){
@@ -181,30 +215,71 @@ public class AppController {
         loginFields.setVisible(true);
         passwordConfirm.setManaged(true);
         passwordConfirm.setVisible(true);
+        btnCheckLogIn.setManaged(false);
+        btnCheckLogIn.setVisible(false);
+        btnCheckRegister.setManaged(true);
+        btnCheckRegister.setVisible(true);
     }
 
     public void checkLogIn(){
         boolean isLogInValid = LogInManager.authenticate(userName.getText(), password.getText());
         if (isLogInValid) {
-            logInArea.setVisible(false);
-            logInArea.setManaged(false);
-            exportArea.setManaged(true);
-            exportArea.setVisible(true);
-            logInStatus.setManaged(false);
-            logInStatus.setVisible(false);
-            userName.setText("");
-            password.setText("");
+            pokemonData = StateManager.loadLastState(userName.getText());
+            initLogIn();
+            try {
+                printPokemonInfo();
+            } catch (NullPointerException e){}
+                //si no pudo cargar el pokemon, no se carga
         } else {
+            password.setText("");
             logInStatus.setManaged(true);
             logInStatus.setVisible(true);
         }
     }
 
+    public void checkRegister(){
+        boolean isRegisterValid = LogInManager.signUp(userName.getText(), password.getText());
+        System.out.println(userName.getText());
+        boolean isPasswordSame = password.getText().equals(passwordRepeated.getText());
+        if (isRegisterValid && isPasswordSame){
+            initLogIn();
+        } else if (!isPasswordSame) {
+            logInStatus.setManaged(true);
+            logInStatus.setVisible(true);
+            logInStatus.setText("Las contraseñas no coinciden");
+            password.setText("");
+            passwordRepeated.setText("");
+        } else if (!isRegisterValid) {
+            logInStatus.setManaged(true);
+            logInStatus.setVisible(true);
+            logInStatus.setText("El usuario ya se halla registrado en la aplicación");
+            password.setText("");
+            passwordRepeated.setText("");
+        }
+    }
+
+    public void initLogIn(){
+        currentUsername = userName.getText();
+        logInArea.setVisible(false);
+        logInArea.setManaged(false);
+        exportArea.setManaged(true);
+        exportArea.setVisible(true);
+        logInStatus.setManaged(false);
+        logInStatus.setVisible(false);
+        userName.setText("");
+        password.setText("");
+        passwordRepeated.setText("");
+    }
+
     public void logOut(){
-        logInArea.setVisible(true);
-        logInArea.setManaged(true);
         exportArea.setManaged(false);
         exportArea.setVisible(false);
+        logInArea.setVisible(true);
+        logInArea.setManaged(true);
+        AppController.saveState();
+        currentUsername = null;
+        showlogIn();
+        cleanFields();
     }
 
 
@@ -242,6 +317,7 @@ public class AppController {
         pokemon = null;
         areas = null;
         currentArea = 0;
+        currentPokemonName.setText("");
         pokemonLocation.setText("");
         pokemonId.setText("");
         foreignName.setText("");
@@ -252,5 +328,21 @@ public class AppController {
         btnExport.setDisable(true);
         errorMessage.setVisible(false);
         exportMessage.setText("");
+        pokemonImage.setImage(new Image("file: "));
     }
+
+    public void deleteCache(){
+        try {
+            CacheManager.deleteCache();
+        } catch (IOException e){
+            System.out.println("Error al borrar la caché");
+        }
+    }
+
+    public static void saveState(){
+        if ((currentUsername != null)){
+            StateManager.saveState(pokemonData, currentUsername);
+        }
+    }
+
 }
