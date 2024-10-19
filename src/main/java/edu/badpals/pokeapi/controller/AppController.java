@@ -299,4 +299,13 @@ public class AppController {
         errorMessage.setVisible(false);
         exportMessage.setText("");
     }
+
+    public void deleteCache(){
+        try {
+            CacheManager.deleteCache();
+        } catch (IOException e){
+            System.out.println("Error al borrar la caché");
+        }
+
+    }
 }

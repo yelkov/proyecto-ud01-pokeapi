@@ -18,12 +18,16 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <TextField fx:id="pokemonName"/>
-    <Label fx:id="errorMessage" text="Error al cargar los datos del pokemon" visible="false"/>
+
+
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+        <TextField fx:id="pokemonName" maxWidth="200.0"/>
         <Button text="Buscar" onAction="#loadPokemon"/>
         <Button text="Limpiar" onAction="#cleanFields"/>
+        <Button text="Borrar Caché" onAction="#deleteCache"/>
+
     </HBox>
+    <Label fx:id="errorMessage" text="Error al cargar los datos del pokemon" visible="false"/>
     <HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
         <Label text="Pokemon id:"/>
         <Label fx:id="pokemonId"/>
