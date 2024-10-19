@@ -15,7 +15,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 700, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 700, 550);
         Font.loadFont(getClass().getResourceAsStream("/fonts/Pokemon_Hollow.ttf"), 40);
         Font.loadFont(getClass().getResourceAsStream("/fonts/pokemon-gb.ttf"), 40);
 

@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -241,6 +242,7 @@ public class AppController {
                 //si no pudo cargar el pokemon, no se carga
         } else {
             password.setText("");
+            logInStatus.setText("Usuario o contraseña no válidos");
             logInStatus.setManaged(true);
             logInStatus.setVisible(true);
         }

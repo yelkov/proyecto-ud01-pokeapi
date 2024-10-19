@@ -1,60 +1,107 @@
 /* styles.css */
 
-/* Estilo para el fondo de la aplicación */
+/* Estilo general para el fondo de la aplicación */
 .root {
-    -fx-background-color: #FFCB05; /* Color amarillo característico de Pokémon */
+    -fx-background-color: #FFCB05; /* Color amarillo Pokémon */
+}
+
+/* Estilo para el ScrollPane */
+ScrollPane {
+    -fx-background-color: transparent; /* Fondo transparente para evitar gris */
 }
 
 /* Estilo para el VBox principal */
-VBox {
-    -fx-padding: 20;
-    -fx-spacing: 20;
-    -fx-alignment: center;
+.panel {
+    -fx-background-color: #FFCB05; /* Fondo amarillo */
+    -fx-padding: 20; /* Espaciado interno */
+    -fx-border-radius: 15; /* Bordes redondeados */
 }
 
 /* Estilo para los botones */
 Button {
-    -fx-background-color: #3B4CCA; /* Azul oscuro típico de Pokémon */
+    -fx-background-color: #3B4CCA; /* Azul oscuro */
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
-    -fx-padding: 10 20 10 20;
+    -fx-background-radius: 10; /* Bordes redondeados */
+    -fx-padding: 10 20; /* Espaciado interno */
 }
 
 /* Efecto al pasar el ratón sobre los botones */
 Button:hover {
-    -fx-background-color: #2A37A0;
+    -fx-background-color: #2A37A0; /* Color más oscuro al pasar el ratón */
 }
 
 /* Estilo para los TextFields */
-TextField {
-    -fx-background-color: white;
-    -fx-border-color: #3B4CCA;
+TextField, PasswordField {
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-border-color: #3B4CCA; /* Borde azul */
     -fx-border-width: 2px;
     -fx-font-size: 14px;
-    -fx-padding: 5;
-    -fx-background-radius: 5;
+    -fx-padding: 5; /* Espaciado interno */
+    -fx-background-radius: 5; /* Bordes redondeados */
     -fx-border-radius: 5;
 }
 
 /* Estilo para los Labels */
 Label {
     -fx-font-size: 16px;
-    -fx-text-fill: #3B4CCA;
+    -fx-text-fill: #3B4CCA; /* Texto azul */
     -fx-font-weight: bold;
 }
 
 /* Estilo para el ComboBox */
 ComboBox {
-    -fx-background-color: white;
-    -fx-border-color: #3B4CCA;
+    -fx-background-color: white; /* Fondo blanco */
+    -fx-border-color: #3B4CCA; /* Borde azul */
     -fx-border-width: 2px;
     -fx-font-size: 14px;
-    -fx-padding: 5;
-    -fx-background-radius: 5;
+    -fx-padding: 2; /* Espaciado interno */
+    -fx-background-radius: 5; /* Bordes redondeados */
     -fx-border-radius: 5;
 }
+
+/* Estilo para el ImageView */
+ImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0); /* Sombra para darle un efecto de profundidad */
+}
+
+/* Estilo para mensajes de error */
+.error-label {
+    -fx-text-fill: red; /* Texto rojo para errores */
+    -fx-font-size: 14px;
+}
+
+/* Estilo para mensajes de exportación */
+.export-label {
+    -fx-text-fill: green; /* Texto verde para exportaciones */
+    -fx-font-size: 14px;
+}
+
+/* Estilo para el nombre del Pokémon */
+#currentPokemonName {
+    -fx-font-family: 'Pokemon GB'; /* Fuente de Pokémon (asegúrate de tenerla disponible) */
+    -fx-text-fill: #3B4CCA; /* Texto azul */
+    -fx-font-size: 30; /* Tamaño de fuente grande */
+}
+
+/* Estilo para botones pequeños */
+.small-button {
+    -fx-background-color: #3B4CCA; /* Azul oscuro */
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10; /* Bordes redondeados */
+    -fx-padding: 5 10; /* Espaciado interno */
+}
+
+/* Estilo para el área de exportación */
+.export-area {
+    -fx-background-color: rgba(255, 203, 5, 0.2); /* Fondo amarillo translúcido */
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+}
+
 
 /* Estilo para el ImageView */
 ImageView {
@@ -88,4 +135,9 @@ ImageView {
     -fx-font-weight: bold;
     -fx-background-radius: 10;
     -fx-padding: 5 10 5 10;
+}
+
+#foreignName{
+    -fx-font-family: "Microsoft YaHei";
+    -fx-font-size: 1.5em;
 }
