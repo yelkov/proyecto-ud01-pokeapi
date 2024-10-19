@@ -39,8 +39,7 @@ public class APIPetitions {
             return pokemon;
 
         } catch (MalformedURLException e) {
-            System.out.println("The URL of Pokemon is invalid");
-            e.printStackTrace();
+            ErrorLogger.saveErrorLog("The URL of pokemon is invalid");
         }
         return null;
     }
@@ -55,11 +54,9 @@ public class APIPetitions {
             return areas;
 
         } catch (MalformedURLException e) {
-            System.out.println("The URL of area is invalid");
-            e.printStackTrace();
+            ErrorLogger.saveErrorLog("The URL of area is invalid");
         }catch (IOException e) {
-            System.out.println("Error reading areas from jsonURL.");
-            e.printStackTrace();
+            ErrorLogger.saveErrorLog("Error reading areas from jsonURL.");
         }
         return null;
     }
@@ -71,7 +68,7 @@ public class APIPetitions {
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
             return mapper.readValue(jsonURL, PokemonImage.class);
         }catch (MalformedURLException e) {
-            System.out.println("The URL of image is invalid");
+            ErrorLogger.saveErrorLog("The URL of image is invalid");
         }
         return null;
     }

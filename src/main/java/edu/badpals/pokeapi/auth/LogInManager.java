@@ -1,5 +1,7 @@
 package edu.badpals.pokeapi.auth;
 
+import edu.badpals.pokeapi.service.ErrorLogger;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -28,7 +30,7 @@ public class LogInManager {
 
 
         } catch (IOException e) {
-            System.out.println("Error reading properties file.");
+            ErrorLogger.saveErrorLog("Error reading properties file.");
         }
         return false;
     }
@@ -47,7 +49,7 @@ public class LogInManager {
                 return true;
             }
         } catch (IOException e) {
-            System.out.println("Error writing properties file.");
+            ErrorLogger.saveErrorLog("Error writing properties file.");
         }
         return false;
     }
@@ -60,7 +62,7 @@ public class LogInManager {
             return HexFormat.of().formatHex(hash);
 
         } catch (NoSuchAlgorithmException e) {
-            System.out.println("Hashing algorithm not found.");;
+            ErrorLogger.saveErrorLog("Hashing algorithm not found.");
         }
         return null;
     }

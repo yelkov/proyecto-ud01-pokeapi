@@ -10,8 +10,7 @@ public class StateManager {
         try(ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream(LAST_STATE_DIR + "lastState_" + username + ".bin"))){
             writer.writeObject(currentState);
         } catch (IOException e) {
-            System.out.println("Error saving current state");
-            e.printStackTrace();
+            ErrorLogger.saveErrorLog("Error saving current state");
         }
     }
 
@@ -28,7 +27,7 @@ public class StateManager {
                 }
             }
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error loading last state: " + e.getMessage());
+            ErrorLogger.saveErrorLog("Error loading last state");
         }
         return null;
     }

@@ -31,8 +31,7 @@ public class CacheManager {
             }
 
         }catch (IOException e){
-            System.out.println("Error saving cache.");
-            e.printStackTrace();
+            ErrorLogger.saveErrorLog("Error saving cache. Cache directory does not exist:" + DIR_CACHE);
         }
     }
 
@@ -48,7 +47,7 @@ public class CacheManager {
         return pokemonImage;
     }
 
-    public static void deleteCache() throws  IOException{
+    public static void deleteCache() {
         File cacheDirectory = new File(DIR_CACHE);
 
         if(cacheDirectory.exists() && cacheDirectory.isDirectory()){
@@ -62,7 +61,7 @@ public class CacheManager {
                 }
             }
         }else{
-            throw new IOException("Cache directory does not exist: " + DIR_CACHE);
+            ErrorLogger.saveErrorLog("Error deleting cache. Cache directory does not exist: " + DIR_CACHE);
         }
     }
 }

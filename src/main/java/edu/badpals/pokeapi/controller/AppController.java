@@ -332,11 +332,7 @@ public class AppController {
     }
 
     public void deleteCache(){
-        try {
-            CacheManager.deleteCache();
-        } catch (IOException e){
-            System.out.println("Error al borrar la caché");
-        }
+        CacheManager.deleteCache();
     }
 
     public static void saveState(){
