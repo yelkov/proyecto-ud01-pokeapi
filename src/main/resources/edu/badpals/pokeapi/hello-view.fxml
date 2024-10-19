@@ -74,16 +74,16 @@
                 </HBox>
                 <VBox fx:id="loginFields" alignment="CENTER" spacing="5.0" managed="false" visible="false">
                     <HBox alignment="CENTER" spacing="5.0">
-                        <Label text="Usuario                     " alignment="BASELINE_LEFT"/>
-                        <TextField fx:id="userName" alignment="BASELINE_RIGHT"/>
+                        <Label text="Usuario                     " />
+                        <TextField fx:id="userName" />
                     </HBox>
                     <HBox alignment="CENTER" spacing="5.0">
-                        <Label text="Contraseña               " alignment="BASELINE_LEFT"/>
-                        <PasswordField fx:id="password" alignment="BASELINE_RIGHT"/>
+                        <Label text="Contraseña               " />
+                        <PasswordField fx:id="password" />
                     </HBox>
                     <HBox fx:id="passwordConfirm" alignment="CENTER" managed="false" visible="false" spacing="5.0">
-                        <Label text="Repita la contraseña" alignment="BASELINE_LEFT"/>
-                        <PasswordField fx:id="passwordRepeated" alignment="BASELINE_RIGHT"/>
+                        <Label text="Repita la contraseña" />
+                        <PasswordField fx:id="passwordRepeated" />
                     </HBox>
                     <Label fx:id="logInStatus" managed="false" visible="false" text=""/>
                     <Button fx:id="btnCheckLogIn" text="Entrar" managed="false" visible="false" onAction="#checkLogIn"/>
