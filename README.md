@@ -10,7 +10,8 @@ ___
   - [Configuración de Maven](#configuración-de-maven) 
   - [Configuración de JavaFx](#configuración-de-javafx)
   - [Ejecución del proyecto](#ejecución-del-proyecto)
-  - [Manejo de la caché y último estado](#manejo-de-la-caché)
+  - [Manejo de la caché y último estado](#manejo-de-la-caché-y-último-estado)
+  - [Manejo de errores](#manejo-de-errores)
   - [Exportación de datos](#exportación-de-datos)
 - [Manual de usuario](#manual-de-usuario)
 - [Reparto de tareas](#reparto-de-tareas)
@@ -191,6 +192,16 @@ El proyecto almacena los datos de los Pokémon consultados y sus imágenes local
 Se puede limpiar la caché con el método `deleteCache()` de la clase `CacheManager`.
 
 El último estado del usuario loggeado se almacena en formato `.bin` en el directorio oculto `.appData`. Cuando se inicia sesión se muestra este estado y se almacena cuando el usuario loggeado sale del programa. 
+
+### Manejo de errores
+
+En la aplicación, los errores se gestionan de dos maneras:
+- Los errores que ocurren en las clases del **modelo** (relacionadas con la lógica interna) se manejan de forma interna y se registran en un archivo de log.
+
+- Por otro lado, los errores que se producen en la **interfaz de usuario** se presentan directamente en pantalla, para que el usuario pueda comprender qué ha fallado.
+
+Para registrar los errores del modelo, existe una clase llamada `ErrorLogger`, ubicada en el paquete `service`. Esta clase es responsable de guardar los errores en un archivo llamado `error.log`, que se encuentra en la carpeta oculta `.appData`.
+
 
 ### Exportación de datos
 
