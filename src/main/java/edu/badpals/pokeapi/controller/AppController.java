@@ -12,6 +12,8 @@ import edu.badpals.pokeapi.service.StateManager;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -87,6 +89,12 @@ public class AppController {
     @FXML
     private TextField passwordRepeated;
 
+    @FXML
+    private Label currentPokemonName;
+
+    @FXML
+    private ImageView pokemonImage;
+
 
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
@@ -119,8 +127,13 @@ public class AppController {
             pokemonData = CacheManager.loadCache(name);
         } catch (IOException e){
             try {
-                pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
-                CacheManager.saveCache(pokemonData);
+                if (!name.equals("")) {
+                    pokemonData = APIPetitions.getPokemonData(pokemonName.getText());
+                    CacheManager.saveCache(pokemonData);
+                } else {
+                    loadable = false;
+                }
+
             } catch (IOException notFound){
                 loadable = false;
                 cleanFields();
@@ -135,7 +148,9 @@ public class AppController {
     public void printPokemonInfo(){
         pokemon = pokemonData.getPokemon();
         id = pokemon.getId();
+        currentPokemonName.setText(pokemon.getName());
         pokemonId.setText(String.valueOf(id));
+        pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
         areas = pokemonData.getAreas();
         if (areas.size() > 1) {
             btnAnterior.setDisable(false);
@@ -302,6 +317,7 @@ public class AppController {
         pokemon = null;
         areas = null;
         currentArea = 0;
+        currentPokemonName.setText("");
         pokemonLocation.setText("");
         pokemonId.setText("");
         foreignName.setText("");
@@ -312,6 +328,7 @@ public class AppController {
         btnExport.setDisable(true);
         errorMessage.setVisible(false);
         exportMessage.setText("");
+        pokemonImage.setImage(new Image("file: "));
     }
 
     public void deleteCache(){
