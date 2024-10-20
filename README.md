@@ -15,7 +15,7 @@ ___
   - [Exportación de datos](#exportación-de-datos)
 - [Manual de usuario](#manual-de-usuario)
   - [Búsquedas sencillas](#búsquedas-sencillas)
-  - [Consultar la información del Pokémon](#consultar-la información-del-pokémon)
+  - [Consultar la información del Pokémon](#consultar-la-información-del-pokémon)
   - [Otras opciones (limpiar datos y borrar caché)](#otras-opciones-limpiar-datos-y-borrar-caché)
   - [Registro](#registro)
   - [Exportaciones](#exportaciones)
