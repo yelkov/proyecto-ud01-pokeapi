@@ -346,7 +346,7 @@ No obstante, el estado se guarda para cada usuario, y si volvemos a iniciar sesi
 
 ![](media/images/manual/19_logindenuevo.png)
 
-Vemos como se vuelve a cargar la información del último pokémon buscado por dicho usuario.
+Vemos como se vuelve a cargar la información del último pokémon buscado por dicho usuario. Esta funcionalidad se mantiene si el usuario cierra la ventana de la aplicación y, tras volverla a arrancar, vuelve a iniciar sesión.
 
 ![](media/images/manual/20_carga_datos_pokemon.png)
 
@@ -354,19 +354,47 @@ Vemos como se vuelve a cargar la información del último pokémon buscado por d
 ## Reparto de tareas
 [Volver al índice](#índice)
 
+A la hora de dividir el desarrollo de la aplicación entre los integrantes, en un principio repartimos los módulos, de forma que David Búa realizó las clases  para el futuro mapeo a los json que se reciben de la API, así como la interfraz gráfica y su controlador, mientras que Yelko Veiga desarrolló todas las funcionalidades recogidas en los módulos de service como login. De esta forma cada uno realizó commits correspondientes a estas partes. No obstante, durante todo el desarrollo ambos miembros estuvimos intercambiando ideas, proponiendo arreglos y mejoras a la otra parte, así como informándonos de las funcionalidades que era necesario implementar para que funcionasen otros módulos. Además, en determinadas ocasiones los miembros realizaron pequeños cambios en la parte del otro para mejorar la integración entre las partes. Por ejemplo, Yelko añadió una clase para poder guardar la URL de la imagen del pokemon, y David corrigió la forma en que se manejaban las excepciones en service para recogerlas con el AppController.
+
+Finalmente, durante las últimas etapas del desarrollo, se realizaron correcciones mediante el uso de Pair Programming, por lo que hubo trabajo de ambos aunque el commit conste como realizado solo por uno, y la documentación de las clases y este mismo ReadMe se repartió entre ambos integrantes.
+
 
 ## Extras
 [Volver al índice](#índice)
+
+En la realización de este trabajo se incluyeron varios extras a mayores de los requisitos mínimos del proyecto. Los más destacables son los siquientes:
+
+ - Guardado en caché de las búsquedas ya realizadas, para agilizar el acceso a la información ya consultada a la API, permitiendo también su consulta sin acceso a internet. Además, esto respeta las condiciones de uso establecidas por la API, como se puede consultar en [este enlace](https://pokeapi.co/docs/v2), en el apartado de Fair Use Policy.
+ - Registros de usuario, mediante el guardado en un archivo de formato .properties de los valores de usuario y contraseña (esta última encriptada). Los usuarios logeados tendrán distintas funcionalidades que los que no inicien sesión.
+ - Exportación de los datos obtenidos mediante las peticiones a la API (necesario iniciar sesión), en cuatro formatos (.txt, .bin, .json y .bin).
+ - Guardado del último estado de sesión. En nuestro caso, en vez de preguntar si queremos recargar el último estado al arrancar la aplicación, por nuestro sistema de usuarios decidimos que se guarde automáticamente el estado para cada usuario cuando termina (tanto al hacer un log out como al cerrar la aplicación), y se carga automáticamente cuando vuelve a iniciar sesión, de forma que cada usuario puede tener un estado diferente.
+ - Manejo de errores en dos niveles, uno mediante mensaje de error por la interfaz gráfica para errores a nivel usuario que este debería conocer (como introducir mal el nombre en el campo de búsqueda o las credenciales del usuario) y otro mediante un registro de los errores en un archivo de tipo log para errores de la lógica interna (cómo los relacionados con el acceso a ficheros). Para más información sobre el manejo de errores, consultar el Manual Técnico de desarrolladores, sección [Manejo de errores](#manejo-de-errores).
 
 
 ## Mejoras
 [Volver al índice](#índice)
 
+Como en todo proyecto, existen numerosas características que por tiempo o recursos no se han podido implementar o que no se han podido perfeccionar. En nuestro caso hemos considerado las siguientes psoibilidades de mejora, aunque siempre abiertos a la posibilidad de otras que no hemos detectado:
+
+ - Ampliar la búsqueda de forma que se puedan consultar la información no solo por nombre, sino también por id.
+ - Resolver algunos conflictos que surgen al guardar una imagen en caché después de haberlo borrado.
+ - Refactorizar el código de la clase AppController para simplificar las funcionalidades referentes a visionado y ocultación de algunos elementos de la interfaz gráfica.
+ - Añadir el menú de login o registro en una ventana aparte.
 
 
 ## Conclusiones
 [Volver al índice](#índice)
 
+Consideramos que el produto final que presentamos es una aplicación que cumple de forma satisfactoria los requisitos de este proyecto. Hemos conseguido realizar la conexión a la API para extraer información de ella, mapeándola a una serie de clases para guardar solamente la información que necesitamos entre todos los datos que devuelve la petición, y la mostramos por pantalla de una forma llamativa y fácil de entender por el usuario. Además hemos implementado los extras de la forma que hemos creído más coherente con la funcionalidad de la aplicación. La aplicación funciona correctamente en las pruebas que hemos realizado, con las pequeñas excepciones que se han explicado en el apartado de mejoras, que no suponen apenas inconvenientes para los usuarios.
+
+La realización del proyecto nos ha permitido, en nuestra humilde opinión, asentar en gran medida el aprendizaje del tratamiento de datos mediante mapeo entre objetos java y archivos json, así como en la escritura y/o lectura de ficheros de otras extensiones, como .txt, .xml o .propierties. Finalmente, nos hemos enfrentado por primera vez a la realización de interfaces gráficas mediante JavaFX, y también a la codificación del inicio de sesión de usuario, del guardado en caché o del registro de errores en un fichero log. Nos sentimos muy orgullosos del aprendizaje autónomo que hemos llevado a cabo para ser capaces de implementar estas funcinoalidades en la aplicación e integrarlas con el resto de los componenes.
+
+Todos estos factores nos llevan a concluir que este proyecto es, sin lugar a dudas, uno del que nos podemos sentir muy orgullosos, no solamente por lo que hemos conseguido, sino por la piedra angular que supone en nuestro proceso de aprendizaje.
+
 
 ## Autores
 [Volver al índice](#índice)
+
+Yelko Veiga Quintas
+
+David Búa Teijeiro
