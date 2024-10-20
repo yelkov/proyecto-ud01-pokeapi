@@ -202,7 +202,9 @@ El último estado del usuario loggeado se almacena en formato `.bin` en el direc
 ### Manejo de errores
 
 En la aplicación, los errores se gestionan de dos maneras:
-- Los errores que ocurren en las clases del **modelo** (relacionadas con la lógica interna) se manejan de forma interna y se registran en un archivo de log.
+- Los errores que ocurren en las clases del **modelo** o de **service** (relacionadas con la lógica interna) se manejan de forma interna y se registran en un archivo de log. Así cuando se captura una excepción, se llama a una función de la clase ErrorLogger, que se encarga de escribir el mensaje en el fichero log.
+
+![](media/images/log.png)
 
 - Por otro lado, los errores que se producen en la **interfaz de usuario** se presentan directamente en pantalla, para que el usuario pueda comprender qué ha fallado.
 
