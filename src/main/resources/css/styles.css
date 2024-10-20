@@ -66,6 +66,7 @@ ImageView {
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0); /* Sombra para darle un efecto de profundidad */
 }
 
+
 /* Estilo para mensajes de error */
 .error-label {
     -fx-text-fill: red; /* Texto rojo para errores */
@@ -80,7 +81,7 @@ ImageView {
 
 /* Estilo para el nombre del Pokémon */
 #currentPokemonName {
-    -fx-font-family: 'Pokemon GB'; /* Fuente de Pokémon (asegúrate de tenerla disponible) */
+    -fx-font-family: 'Pokemon GB'; /* Fuente customizada de Pokémon en píxeles */
     -fx-text-fill: #3B4CCA; /* Texto azul */
     -fx-font-size: 30; /* Tamaño de fuente grande */
 }
@@ -102,12 +103,6 @@ ImageView {
     -fx-border-radius: 5;
 }
 
-
-/* Estilo para el ImageView */
-ImageView {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.75), 10, 0.5, 0, 0);
-}
-
 /* Estilo para mensajes de error */
 .error-label {
     -fx-text-fill: red;
@@ -120,24 +115,8 @@ ImageView {
     -fx-font-size: 14px;
 }
 
-
-#currentPokemonName{
-    -fx-font-family: 'Pokemon GB';
-    -fx-text-fill: #3B4CCA;
-    -fx-font-size: 30;
-}
-
-
-.small-button {
-    -fx-background-color: #3B4CCA;
-    -fx-text-fill: white;
-    -fx-font-size: 12px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 10;
-    -fx-padding: 5 10 5 10;
-}
-
+/* Estilo para los nombres en otros idiomas  */
 #foreignName{
-    -fx-font-family: "Microsoft YaHei";
+    -fx-font-family: "Microsoft YaHei"; /* Fuente para visualizar mejor caracteres orientales */
     -fx-font-size: 1.5em;
 }
