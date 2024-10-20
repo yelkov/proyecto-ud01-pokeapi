@@ -249,21 +249,21 @@ public class AppController {
     }
 
     public void checkRegister(){
-        boolean isRegisterValid = LogInManager.signUp(userName.getText(), password.getText());
-        System.out.println(userName.getText());
         boolean isPasswordSame = password.getText().equals(passwordRepeated.getText());
-        if (isRegisterValid && isPasswordSame){
-            initLogIn();
-        } else if (!isPasswordSame) {
+        if (isPasswordSame){
+            if (LogInManager.signUp(userName.getText(), password.getText())){
+                initLogIn();
+            } else {
+                logInStatus.setManaged(true);
+                logInStatus.setVisible(true);
+                logInStatus.setText("El usuario ya se halla registrado en la aplicación");
+                password.setText("");
+                passwordRepeated.setText("");
+            }
+        } else {
             logInStatus.setManaged(true);
             logInStatus.setVisible(true);
             logInStatus.setText("Las contraseñas no coinciden");
-            password.setText("");
-            passwordRepeated.setText("");
-        } else if (!isRegisterValid) {
-            logInStatus.setManaged(true);
-            logInStatus.setVisible(true);
-            logInStatus.setText("El usuario ya se halla registrado en la aplicación");
             password.setText("");
             passwordRepeated.setText("");
         }
