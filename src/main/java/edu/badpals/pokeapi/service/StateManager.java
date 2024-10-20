@@ -3,6 +3,17 @@ import edu.badpals.pokeapi.model.PokemonData;
 
 import java.io.*;
 
+/**
+ * La clase StateManager permite guardar y cargar el estado de un objeto
+ * PokemonData en un archivo binario.
+ *
+ *
+ * @author David Búa @BuaTeijeiro
+ * @author Yelko Veiga @yelkov
+ * @version 1.0
+ * @use Utiliza los métodos saveState y loadLastState para gestionar
+ *     el estado de un Pokémon a lo largo de diferentes sesiones de un usuario.
+ */
 public class StateManager {
     // Directorio donde se guardarán los estados guardados
     private static final String LAST_STATE_DIR =".appData/";

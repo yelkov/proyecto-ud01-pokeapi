@@ -16,6 +16,19 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
 
+/**
+ * Clase responsable de exportar datos de un Pokémon a diferentes formatos de archivo.
+ *
+ * Permite exportar un objeto {@link PokemonData} a formatos JSON, binario, texto y XML.
+ * Cada método de exportación toma como entrada el objeto Pokémon y la ruta donde se
+ * guardará el archivo, devolviendo un booleano que indica si la operación fue exitosa.
+ *
+ * @author David Búa @BuaTeijeiro
+ * @author Yelko Veiga @yelkov
+ * @version 1.0
+ * @use Utiliza los métodos exportToJson, exportToBin, exportToTxt y exportToXml para
+ * exportar los datos del Pokémon en el formato deseado.
+ */
 public class DocumentExporter {
     /**
      * Exporta los datos de un Pokémon a un archivo JSON.

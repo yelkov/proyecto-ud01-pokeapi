@@ -17,6 +17,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Clase encargada de gestionar la caché de datos de Pokémon.
+ *
+ * Proporciona métodos para guardar, cargar y eliminar datos de Pokémon y sus imágenes
+ * en un directorio de caché local. Los datos se almacenan en formato JSON y las imágenes
+ * se guardan como archivos PNG.
+ *
+ * @author David Búa @BuaTeijeiro
+ * @author Yelko Veiga @yelkov
+ * @version 1.0
+ * @use Utiliza los métodos saveCache, loadCache, loadImageCache y deleteCache para gestionar
+ * los datos en caché de los Pokémon.
+ */
 public class CacheManager {
     // Directorio donde se almacenarán los archivos de caché
     private static final String DIR_CACHE = "cache/";

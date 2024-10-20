@@ -14,6 +14,19 @@ import java.util.List;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * Clase responsable de realizar peticiones a la API de Pokémon.
+ *
+ * Proporciona métodos para obtener información detallada sobre un Pokémon, incluyendo
+ * sus datos básicos, áreas de encuentro y la imagen correspondiente. Los datos se
+ * estructuran en un objeto {@link PokemonData} que puede ser utilizado en la aplicación.
+ *
+ * @author David Búa @BuaTeijeiro
+ * @author Yelko Veiga @yelkov
+ * @version 1.0
+ * @use Utiliza el método {@link #getPokemonData(String)} para obtener la información
+ * completa de un Pokémon a partir de su nombre.
+ */
 public class APIPetitions {
     // URL base para obtener información sobre Pokémon
     private static final String POKEMON_URL = "https://pokeapi.co/api/v2/pokemon-species/";

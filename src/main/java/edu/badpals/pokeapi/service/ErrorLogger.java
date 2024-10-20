@@ -9,6 +9,17 @@ import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Clase responsable de gestionar el registro de errores en un archivo de log.
+ *
+ * Permite guardar mensajes de error junto con la fecha y hora
+ * en que ocurrieron
+ *
+ * @author David Búa @BuaTeijeiro
+ * @author Yelko Veiga @yelkov
+ * @version 1.0
+ * @use Utiliza el método saveErrorLog para registrar mensajes de error en el archivo de log.
+ */
 public class ErrorLogger {
     // Ruta donde se almacenará el archivo de log de errores
     private static String LOG_FILE_PATH = ".appData/error.log";
