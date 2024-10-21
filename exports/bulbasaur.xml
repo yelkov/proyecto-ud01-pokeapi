@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <pokemonData>
     <pokemon>
-        <id>1</id>
-        <name>bulbasaur</name>
+        <id>78</id>
+        <name>rapidash</name>
         <foreignNames>
-            <name>フシギダネ</name>
+            <name>ギャロップ</name>
             <language>
                 <name>ja-Hrkt</name>
             </language>
-            <name>Fushigidane</name>
+            <name>Gallop</name>
             <language>
                 <name>roomaji</name>
             </language>
-            <name>이상해씨</name>
+            <name>날쌩마</name>
             <language>
                 <name>ko</name>
             </language>
-            <name>妙蛙種子</name>
+            <name>烈焰馬</name>
             <language>
                 <name>zh-Hant</name>
             </language>
-            <name>Bulbizarre</name>
+            <name>Galopa</name>
             <language>
                 <name>fr</name>
             </language>
-            <name>Bisasam</name>
+            <name>Gallopa</name>
             <language>
                 <name>de</name>
             </language>
-            <name>Bulbasaur</name>
+            <name>Rapidash</name>
             <language>
                 <name>es</name>
             </language>
-            <name>Bulbasaur</name>
+            <name>Rapidash</name>
             <language>
                 <name>it</name>
             </language>
-            <name>Bulbasaur</name>
+            <name>Rapidash</name>
             <language>
                 <name>en</name>
             </language>
-            <name>フシギダネ</name>
+            <name>ギャロップ</name>
             <language>
                 <name>ja</name>
             </language>
-            <name>妙蛙种子</name>
+            <name>烈焰马</name>
             <language>
                 <name>zh-Hans</name>
             </language>
@@ -52,16 +52,24 @@
     </pokemon>
     <areas>
         <locationArea>
-            <name>cerulean-city-area</name>
+            <name>mt-silver-outside</name>
         </locationArea>
         <locationArea>
-            <name>pallet-town-area</name>
+            <name>kanto-route-28-area</name>
         </locationArea>
         <locationArea>
-            <name>lumiose-city-area</name>
+            <name>mt-ember-area</name>
         </locationArea>
         <locationArea>
-            <name>alola-route-2-main</name>
+            <name>kindle-road-area</name>
+        </locationArea>
+        <locationArea>
+            <name>unova-route-12-area</name>
         </locationArea>
     </areas>
+    <pokemonImage>
+        <sprites>
+            <front_default>https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/78.png</front_default>
+        </sprites>
+    </pokemonImage>
 </pokemonData>
