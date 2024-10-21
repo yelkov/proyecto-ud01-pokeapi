@@ -188,6 +188,11 @@ Una vez que el JAR esté generado, se ejecuta el siguiente comando **desde el di
 java --module-path="/ruta/al/javafx/lib" --add-modules="javafx.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.swing,javafx.media" -jar nombre-del-archivo.jar
 ```
 
+En la siguiente captura mostramos la ejecución desde el terminal.
+
+![](media/images/jar.png)
+
+
 ### Manejo de la caché y último estado
 
 El proyecto almacena los datos de los Pokémon consultados y sus imágenes localmente en la carpeta de caché (`/cache`).
