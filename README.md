@@ -61,7 +61,7 @@ A continuación se detalla cada petición con su respuesta adjuntando las captur
 ### Requisitos previos
 
 - **Java SE 17 o superior**: El proyecto está desarrollado usando Java 17, por lo que necesitarás tener una versión igual o superior instalada. ([descargar](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html))
-- **JavaFX 23.0.1**: El proyecto usa JavaFX para la interfaz gráfica, por lo que deberás incluir el SDK de JavaFX. ([descargar](https://gluonhq.com/products/javafx/))
+- **JavaFX 21.0.5**: El proyecto usa JavaFX para la interfaz gráfica, por lo que deberás incluir el SDK de JavaFX. ([descargar](https://gluonhq.com/products/javafx/))
 - **Maven**: La gestión de dependencias se hace con Maven, por lo que deberás tener Maven instalado.([descargar](https://maven.apache.org/download.cgi))
 - **IDE recomendado**: Se recomienda el uso de IntelliJ IDEA para un desarrollo más sencillo, pero se puede usar cualquier otro IDE compatible con Java. ([descargar](https://www.jetbrains.com/idea/download/?section=windows))
 
@@ -226,7 +226,7 @@ Al abrir la aplicación, el usuario verá una pantalla como la que se muestra a 
 
 ![](media/images/manual/01_pantalla_inicio.png)
 
-El usuario deberá escribir el nombre del pokemon cuya información quiera buscar en la caja de texto, y a continuación pulsar en el botón buscar.
+El usuario deberá escribir el nombre del pokemon cuya información quiera buscar en la caja de texto, y a continuación pulsar en el botón `buscar`.
 
 ![](media/images/manual/02_01_buscar_pokemon.png)
 
@@ -249,11 +249,11 @@ Este mensaje se mostrará también en el caso de que no haya conexión a interne
 
 ### Consultar la información del Pokémon
 
-Aunque la mayoría de idiomas utilizzan los nombres en inglés para denominar a cada especie pokémon, algunos emplean otros diferentes. En concreto estos son el japonés, el coreano, el francés, el alemán y el chino. El usuario podrá escoger cualquiera de estos en la caja de selección y automáticamente verá el nombre del pokemon en dicho idioma.
+Aunque la mayoría de idiomas utilizan los nombres en inglés para denominar a cada especie pokémon, algunos emplean otros diferentes. En concreto estos son el japonés, el coreano, el francés, el alemán y el chino. El usuario podrá escoger cualquiera de estos en la caja de selección y automáticamente verá el nombre del pokemon en dicho idioma.
 
 ![](media/images/manual/04_idiomas.png)
 
-Además, la mayoría de los pokémon se encuentran en múltiples rutas, y podrá consultar todas ellas pulsando los botones con las flechas "&lt;" y "&gt;" para moverse a la ruta anterior y la siguiente respectivamente. Las rutas están configuradas de forma cíclica, de forma que al darle a siguiente en la última, volverá a mostrarse la primera.
+Además, la mayoría de los pokémon se encuentran en múltiples rutas, y podrá consultar todas ellas pulsando los botones con las flechas `<` y `>` para moverse a la ruta anterior y la siguiente respectivamente. Las rutas están configuradas de forma cíclica, de forma que al darle a siguiente en la última, volverá a mostrarse la primera.
 
 ![](media/images/manual/05_rutas1.png)
 
@@ -267,7 +267,7 @@ Otros pokémon no se pueden encontrar en ninguna parte del mapa, pues presentan 
 
 ### Otras opciones (limpiar datos y borrar caché)
 
-Si se ha acabado de consultar la información de un pokémon, se puede limpiar todos los campos de búsqueda pulsando el botón limpiar.
+Si se ha acabado de consultar la información de un pokémon, se puede limpiar todos los campos de búsqueda pulsando el botón `Limpiar`.
 
 ![](media/images/manual/07_limpiar.png)
 
@@ -275,7 +275,7 @@ A medida que se realizan búsquedas, la aplicación guarda la información en ca
 
 ![](media/images/manual/08_cache.png)
 
-No obstante, si dichos archivos llegasen a ocupar demasiado espacio, la aplicación dispone de un botón de Borrar Caché, que elimina todos esos archivos.
+No obstante, si dichos archivos llegasen a ocupar demasiado espacio, la aplicación dispone de un botón de `Borrar Caché`, que elimina todos esos archivos.
 
 ![](media/images/manual/09_borrarcache.png)
 
@@ -334,7 +334,7 @@ En caso de introducir una ruta no existente, la exportación no se podrá llevar
 
 ### Guardado del último estado
 
-En cualquier momento del uso de la aplicación se podrá pulsar el botón de logout para salir de la sesión.
+En cualquier momento del uso de la aplicación se podrá pulsar el botón `Log Out` para salir de la sesión.
 
 ![](media/images/manual/17_logout.png)
 
@@ -396,6 +396,6 @@ Todos estos factores nos llevan a concluir que este proyecto es, sin lugar a dud
 ## Autores
 [Volver al índice](#índice)
 
-Yelko Veiga Quintas
+Yelko Veiga Quintas [@yelkov](https://github.com/yelkov)
 
-David Búa Teijeiro
+David Búa Teijeiro [@BuaTeijeiro](https://github.com/BuaTeijeiro)
