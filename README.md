@@ -379,6 +379,7 @@ Como en todo proyecto, existen numerosas características que por tiempo o recur
  - Ampliar la búsqueda de forma que se puedan consultar la información no solo por nombre, sino también por id.
  - Resolver algunos conflictos que surgen al guardar una imagen en caché después de haberlo borrado.
  - Refactorizar el código de la clase AppController para simplificar las funcionalidades referentes a visionado y ocultación de algunos elementos de la interfaz gráfica.
+ - Durante la ejecución del programa se realizan 3 peticiones a la API, una para la información general, otra para las rutas y otra para las imágenes. Por algún motivo, la de las rutas no está disponible para todos los pokémon, y en este caso nuestro programa avisa de un error, en vez de cargar la información que sí encuentra.
  - Añadir el menú de login o registro en una ventana aparte.
 
 
