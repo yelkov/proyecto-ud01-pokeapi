@@ -14,6 +14,12 @@ ___
   - [Manejo de errores](#manejo-de-errores)
   - [Exportación de datos](#exportación-de-datos)
 - [Manual de usuario](#manual-de-usuario)
+  - [Búsquedas sencillas](#búsquedas-sencillas)
+  - [Consultar la información del Pokémon](#consultar-la-información-del-pokémon)
+  - [Otras opciones (limpiar datos y borrar caché)](#otras-opciones-limpiar-datos-y-borrar-caché)
+  - [Registro](#registro)
+  - [Exportaciones](#exportaciones)
+  - [Guardado del último estado](#guardado-del-último-estado)
 - [Reparto de tareas](#reparto-de-tareas)
 - [Extras](#extras)
 - [Mejoras](#mejoras)
@@ -196,7 +202,9 @@ El último estado del usuario loggeado se almacena en formato `.bin` en el direc
 ### Manejo de errores
 
 En la aplicación, los errores se gestionan de dos maneras:
-- Los errores que ocurren en las clases del **modelo** (relacionadas con la lógica interna) se manejan de forma interna y se registran en un archivo de log.
+- Los errores que ocurren en las clases del **modelo** o de **service** (relacionadas con la lógica interna) se manejan de forma interna y se registran en un archivo de log. Así cuando se captura una excepción, se llama a una función de la clase ErrorLogger, que se encarga de escribir el mensaje en el fichero log.
+
+![](media/images/log.png)
 
 - Por otro lado, los errores que se producen en la **interfaz de usuario** se presentan directamente en pantalla, para que el usuario pueda comprender qué ha fallado.
 
@@ -212,24 +220,181 @@ El proyecto permite exportar la información de los Pokémon a diferentes format
 ## Manual de usuario
 [Volver al índice](#índice)
 
+### Búsquedas sencillas
+
+Al abrir la aplicación, el usuario verá una pantalla como la que se muestra a continuación
+
+![](media/images/manual/01_pantalla_inicio.png)
+
+El usuario deberá escribir el nombre del pokemon cuya información quiera buscar en la caja de texto, y a continuación pulsar en el botón buscar.
+
+![](media/images/manual/02_01_buscar_pokemon.png)
+
+
+De forma automática se cargarán por pantalla la imagen, el nombre con la tipografía típica de los juegos de pokémon, su id, el nombre en inglés y un área dónde se puede encontrar en los juegos.
+
+![](media/images/manual/02_buscar_pokemon.png)
+
+Nótese que la aplicación no distingue mayúsculas y minúsculas, por lo que el usuario no tendrá que tener cuidado en ese aspecto a la hora de teclear el nombre del pokémon, como se muestra en el siguiente ejemplo:
+
+![](media/images/manual/03_valido_mayusculas.png)
+
+Por otro lado, si el usuario intenta buscar el nombre de un pokémon no existente, o lo teclea mal, se mostrará un mensaje de error al usuario, como se muestra en las capturas siguientes.
+
+![](media/images/manual/02_not_found_01.png)
+
+Este mensaje se mostrará también en el caso de que no haya conexión a internet y no se pueda acceder a la API.
+
+![](media/images/manual/02_not_found_02.png)
+
+### Consultar la información del Pokémon
+
+Aunque la mayoría de idiomas utilizzan los nombres en inglés para denominar a cada especie pokémon, algunos emplean otros diferentes. En concreto estos son el japonés, el coreano, el francés, el alemán y el chino. El usuario podrá escoger cualquiera de estos en la caja de selección y automáticamente verá el nombre del pokemon en dicho idioma.
+
+![](media/images/manual/04_idiomas.png)
+
+Además, la mayoría de los pokémon se encuentran en múltiples rutas, y podrá consultar todas ellas pulsando los botones con las flechas "&lt;" y "&gt;" para moverse a la ruta anterior y la siguiente respectivamente. Las rutas están configuradas de forma cíclica, de forma que al darle a siguiente en la última, volverá a mostrarse la primera.
+
+![](media/images/manual/05_rutas1.png)
+
+Al buscar a algunos pokémon, los botones de siguiente ruta y de ruta anterior aparecen bloqueados. Esto significa que el pokémon que se ha buscado solo se puede encontrar en la ruta que se muestra.
+
+![](media/images/manual/06_02_1_ruta.png)
+
+Otros pokémon no se pueden encontrar en ninguna parte del mapa, pues presentan otros métodos de obtención (evolución, por ejemplo). En estos casos se mostrará el mensaje de que no se halla en estado salvaje y los botones de anterior y siguiente también aparecerán bloqueados.
+
+![](media/images/manual/06_03_no_ruta.png)
+
+### Otras opciones (limpiar datos y borrar caché)
+
+Si se ha acabado de consultar la información de un pokémon, se puede limpiar todos los campos de búsqueda pulsando el botón limpiar.
+
+![](media/images/manual/07_limpiar.png)
+
+A medida que se realizan búsquedas, la aplicación guarda la información en caché (archivos almacenados en local), de forma que si se vuelve a buscar al mismo pokémon, la aplicación muestre los resultados más rápidamente. Además, de no haber internet, las búsquedas a pokémons ya buscados previamente se podrán realizar sin problemas.
+
+![](media/images/manual/08_cache.png)
+
+No obstante, si dichos archivos llegasen a ocupar demasiado espacio, la aplicación dispone de un botón de Borrar Caché, que elimina todos esos archivos.
+
+![](media/images/manual/09_borrarcache.png)
+
+### Registro
+
+El usuario probablemente ha observado también que en la parte inferior de la interfaz hay una sección de exportación, para lo cual es necesario haber iniciado sesión. La primera vez, el usuario deberá registrarse, pulsando el botón correspondiente, que se muestra resaltado en la imagen.
+
+
+![](media/images/manual/10_Registrarse.png)
+
+No podremos registrarnos con un nombre que ya haya sido registrado para otro usuario. 
+
+![](media/images/manual/11_Registrarse_1_intento.png)
+
+Por ejemplo, al intentar registrarnos como david (ya existe un usuario con dicho nombre), nos mostrará un mensaje de que no nos hemos podido registrar.
+
+![](media/images/manual/11_Registrarse_2_fallo.png)
+
+Además, por seguridad, se pide al usuario que introduzca la contraseña dos veces para evitar erratas.
+
+![](media/images/manual/11_Registrarse_3_intento.png)
+
+Del mismo modo que antes, si ambas contraseñas no coinciden, se mostrará un mensaje al usuario, dándole la oportunidad de que vuelva a intentarlo.
+
+![](media/images/manual/11_Registrarse_3_fallo.png)
+
+Al introducir credenciales válidas, se registrará al usuario, produciéndose el login de forma automática.
+
+![](media/images/manual/11_Registrarse_4_intento.png)
+
+### Exportaciones
+
+Tras el login, ya observamos el menú de exportación. Si no se ha buscado ningún pokémon, el botón de exportar aparece bloqueado, como se muestra en la imagen.
+
+![](media/images/manual/11_Registrarse_4_exito.png)
+
+Pero tras cargar la información de cualquier pokémon, este aparecerá ya activado
+
+![](media/images/manual/12_Exportar_pokemon.png)
+
+Para realizar la exportación se deberá indicar la ruta dónde se querrá guardar la información, con el formato directorio/nombreArchivo (sin extensión), y además se escogerá en el selector el formato con el que queremos realizar la exportación.
+
+![](media/images/manual/13_Exportar_options.png)
+
+Tras clickar en el botón exportar nos informará de si la exportación ha sido correcta.
+
+![](media/images/manual/14_Exportar_correctamente.png)
+
+En caso afirmativo, veremos el archivo con el formato seleccionado en la ruta indicada.
+
+![](media/images/manual/15_Exportacion.png)
+
+En caso de introducir una ruta no existente, la exportación no se podrá llevar a cabo y se mostrará un mensaje al usuario.
+
+![](media/images/manual/16_Exportacion_mal.png)
+
+### Guardado del último estado
+
+En cualquier momento del uso de la aplicación se podrá pulsar el botón de logout para salir de la sesión.
+
+![](media/images/manual/17_logout.png)
+
+Al pulsar el botón, nos desaparecerá el menú de exportar, y se limpiarán los datos del pokémon que se estaba consultando.
+
+![](media/images/manual/18_loggedout.png)
+
+No obstante, el estado se guarda para cada usuario, y si volvemos a iniciar sesión,...
+
+![](media/images/manual/19_logindenuevo.png)
+
+Vemos como se vuelve a cargar la información del último pokémon buscado por dicho usuario. Esta funcionalidad se mantiene si el usuario cierra la ventana de la aplicación y, tras volverla a arrancar, vuelve a iniciar sesión.
+
+![](media/images/manual/20_carga_datos_pokemon.png)
 
 
 ## Reparto de tareas
 [Volver al índice](#índice)
 
+A la hora de dividir el desarrollo de la aplicación entre los integrantes, en un principio repartimos los módulos, de forma que David Búa realizó las clases  para el futuro mapeo a los json que se reciben de la API, así como la interfraz gráfica y su controlador, mientras que Yelko Veiga desarrolló todas las funcionalidades recogidas en los módulos de service como login. De esta forma cada uno realizó commits correspondientes a estas partes. No obstante, durante todo el desarrollo ambos miembros estuvimos intercambiando ideas, proponiendo arreglos y mejoras a la otra parte, así como informándonos de las funcionalidades que era necesario implementar para que funcionasen otros módulos. Además, en determinadas ocasiones los miembros realizaron pequeños cambios en la parte del otro para mejorar la integración entre las partes. Por ejemplo, Yelko añadió una clase para poder guardar la URL de la imagen del pokemon, y David corrigió la forma en que se manejaban las excepciones en service para recogerlas con el AppController.
+
+Finalmente, durante las últimas etapas del desarrollo, se realizaron correcciones mediante el uso de Pair Programming, por lo que hubo trabajo de ambos aunque el commit conste como realizado solo por uno, y la documentación de las clases y este mismo ReadMe se repartió entre ambos integrantes.
+
 
 ## Extras
 [Volver al índice](#índice)
+
+En la realización de este trabajo se incluyeron varios extras a mayores de los requisitos mínimos del proyecto. Los más destacables son los siquientes:
+
+ - Guardado en caché de las búsquedas ya realizadas, para agilizar el acceso a la información ya consultada a la API, permitiendo también su consulta sin acceso a internet. Además, esto respeta las condiciones de uso establecidas por la API, como se puede consultar en [este enlace](https://pokeapi.co/docs/v2), en el apartado de Fair Use Policy.
+ - Registros de usuario, mediante el guardado en un archivo de formato .properties de los valores de usuario y contraseña (esta última encriptada). Los usuarios logeados tendrán distintas funcionalidades que los que no inicien sesión.
+ - Exportación de los datos obtenidos mediante las peticiones a la API (necesario iniciar sesión), en cuatro formatos (.txt, .bin, .json y .bin).
+ - Guardado del último estado de sesión. En nuestro caso, en vez de preguntar si queremos recargar el último estado al arrancar la aplicación, por nuestro sistema de usuarios decidimos que se guarde automáticamente el estado para cada usuario cuando termina (tanto al hacer un log out como al cerrar la aplicación), y se carga automáticamente cuando vuelve a iniciar sesión, de forma que cada usuario puede tener un estado diferente.
+ - Manejo de errores en dos niveles, uno mediante mensaje de error por la interfaz gráfica para errores a nivel usuario que este debería conocer (como introducir mal el nombre en el campo de búsqueda o las credenciales del usuario) y otro mediante un registro de los errores en un archivo de tipo log para errores de la lógica interna (cómo los relacionados con el acceso a ficheros). Para más información sobre el manejo de errores, consultar el Manual Técnico de desarrolladores, sección [Manejo de errores](#manejo-de-errores).
 
 
 ## Mejoras
 [Volver al índice](#índice)
 
+Como en todo proyecto, existen numerosas características que por tiempo o recursos no se han podido implementar o que no se han podido perfeccionar. En nuestro caso hemos considerado las siguientes psoibilidades de mejora, aunque siempre abiertos a la posibilidad de otras que no hemos detectado:
+
+ - Ampliar la búsqueda de forma que se puedan consultar la información no solo por nombre, sino también por id.
+ - Resolver algunos conflictos que surgen al guardar una imagen en caché después de haberlo borrado.
+ - Refactorizar el código de la clase AppController para simplificar las funcionalidades referentes a visionado y ocultación de algunos elementos de la interfaz gráfica.
+ - Añadir el menú de login o registro en una ventana aparte.
 
 
 ## Conclusiones
 [Volver al índice](#índice)
 
+Consideramos que el produto final que presentamos es una aplicación que cumple de forma satisfactoria los requisitos de este proyecto. Hemos conseguido realizar la conexión a la API para extraer información de ella, mapeándola a una serie de clases para guardar solamente la información que necesitamos entre todos los datos que devuelve la petición, y la mostramos por pantalla de una forma llamativa y fácil de entender por el usuario. Además hemos implementado los extras de la forma que hemos creído más coherente con la funcionalidad de la aplicación. La aplicación funciona correctamente en las pruebas que hemos realizado, con las pequeñas excepciones que se han explicado en el apartado de mejoras, que no suponen apenas inconvenientes para los usuarios.
+
+La realización del proyecto nos ha permitido, en nuestra humilde opinión, asentar en gran medida el aprendizaje del tratamiento de datos mediante mapeo entre objetos java y archivos json, así como en la escritura y/o lectura de ficheros de otras extensiones, como .txt, .xml o .propierties. Finalmente, nos hemos enfrentado por primera vez a la realización de interfaces gráficas mediante JavaFX, y también a la codificación del inicio de sesión de usuario, del guardado en caché o del registro de errores en un fichero log. Nos sentimos muy orgullosos del aprendizaje autónomo que hemos llevado a cabo para ser capaces de implementar estas funcinoalidades en la aplicación e integrarlas con el resto de los componenes.
+
+Todos estos factores nos llevan a concluir que este proyecto es, sin lugar a dudas, uno del que nos podemos sentir muy orgullosos, no solamente por lo que hemos conseguido, sino por la piedra angular que supone en nuestro proceso de aprendizaje.
+
 
 ## Autores
 [Volver al índice](#índice)
+
+Yelko Veiga Quintas
+
+David Búa Teijeiro
