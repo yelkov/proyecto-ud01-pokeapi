@@ -148,7 +148,7 @@ public class AppController {
     @FXML
     protected void loadPokemon() {
         Boolean loadable = true;
-        String name = pokemonName.getText().toLowerCase();
+        String name = pokemonName.getText().toLowerCase().replace(" ","-");
         show(errorMessage, false);
         currentArea = 0;
         try{
@@ -181,10 +181,17 @@ public class AppController {
         pokemon = pokemonData.getPokemon();
         id = pokemon.getId();
         show(currentPokemonName, true);
-        currentPokemonName.setText(pokemon.getName().toUpperCase());
+        currentPokemonName.setText(pokemon.obtainNameDictionary().get("english"));
         pokemonId.setText(String.valueOf(id));
         show(pokemonImage, true);
-        pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
+        File fileImage = new File(CacheManager.loadImageCache(pokemon.getName()));
+        if (fileImage.exists()){
+            pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
+        } else {
+            pokemonImage.setImage(new Image(pokemonData.getPokemonImage().obtainImage()));
+            CacheManager.saveCache(pokemonData);
+        }
+
         areas = pokemonData.getAreas();
         if (areas.size() > 1) {
             btnAnterior.setDisable(false);
