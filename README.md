@@ -371,7 +371,7 @@ En la realización de este trabajo se incluyeron varios extras a mayores de los 
 
  - Guardado en caché de las búsquedas ya realizadas, para agilizar el acceso a la información ya consultada a la API, permitiendo también su consulta sin acceso a internet. Además, esto respeta las condiciones de uso establecidas por la API, como se puede consultar en [este enlace](https://pokeapi.co/docs/v2), en el apartado de Fair Use Policy.
  - Registros de usuario, mediante el guardado en un archivo de formato .properties de los valores de usuario y contraseña (esta última encriptada). Los usuarios logeados tendrán distintas funcionalidades que los que no inicien sesión.
- - Exportación de los datos obtenidos mediante las peticiones a la API (necesario iniciar sesión), en cuatro formatos (.txt, .bin, .json y .bin).
+ - Exportación de los datos obtenidos mediante las peticiones a la API (necesario iniciar sesión), en cuatro formatos (.txt, .bin, .json y .bin), mediante elección por un combobox.
  - Guardado del último estado de sesión. En nuestro caso, en vez de preguntar si queremos recargar el último estado al arrancar la aplicación, por nuestro sistema de usuarios decidimos que se guarde automáticamente el estado para cada usuario cuando termina (tanto al hacer un log out como al cerrar la aplicación), y se carga automáticamente cuando vuelve a iniciar sesión, de forma que cada usuario puede tener un estado diferente.
  - Manejo de errores en dos niveles, uno mediante mensaje de error por la interfaz gráfica para errores a nivel usuario que este debería conocer (como introducir mal el nombre en el campo de búsqueda o las credenciales del usuario) y otro mediante un registro de los errores en un archivo de tipo log para errores de la lógica interna (cómo los relacionados con el acceso a ficheros). Para más información sobre el manejo de errores, consultar el Manual Técnico de desarrolladores, sección [Manejo de errores](#manejo-de-errores).
 
@@ -390,6 +390,7 @@ Como en todo proyecto, existen numerosas características que por tiempo o recur
 
 ## Conclusiones
 [Volver al índice](#índice)
+
 Aunque no hemos llevado cuenta de forma rigurosa del tiempo empleado, estimamos que entre planificación y repartición de las tareas, investigación de los recursos empleados, escritura de código y corrección de errores, cada miembro invirtió unas 25 horas.
 
 Consideramos que el produto final que presentamos es una aplicación que cumple de forma satisfactoria los requisitos de este proyecto. Hemos conseguido realizar la conexión a la API para extraer información de ella, mapeándola a una serie de clases para guardar solamente la información que necesitamos entre todos los datos que devuelve la petición, y la mostramos por pantalla de una forma llamativa y fácil de entender por el usuario. Además hemos implementado los extras de la forma que hemos creído más coherente con la funcionalidad de la aplicación. La aplicación funciona correctamente en las pruebas que hemos realizado, con las pequeñas excepciones que se han explicado en el apartado de mejoras, que no suponen apenas inconvenientes para los usuarios.
