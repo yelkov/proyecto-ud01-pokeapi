@@ -390,6 +390,7 @@ Como en todo proyecto, existen numerosas características que por tiempo o recur
 
 ## Conclusiones
 [Volver al índice](#índice)
+Aunque no hemos llevado cuenta de forma rigurosa del tiempo empleado, estimamos que entre planificación y repartición de las tareas, investigación de los recursos empleados, escritura de código y corrección de errores, cada miembro invirtió unas 25 horas.
 
 Consideramos que el produto final que presentamos es una aplicación que cumple de forma satisfactoria los requisitos de este proyecto. Hemos conseguido realizar la conexión a la API para extraer información de ella, mapeándola a una serie de clases para guardar solamente la información que necesitamos entre todos los datos que devuelve la petición, y la mostramos por pantalla de una forma llamativa y fácil de entender por el usuario. Además hemos implementado los extras de la forma que hemos creído más coherente con la funcionalidad de la aplicación. La aplicación funciona correctamente en las pruebas que hemos realizado, con las pequeñas excepciones que se han explicado en el apartado de mejoras, que no suponen apenas inconvenientes para los usuarios.
 
