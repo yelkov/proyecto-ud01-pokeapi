@@ -13,6 +13,7 @@ import java.lang.runtime.ObjectMethods;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +50,7 @@ public class CacheManager {
             // Descargar la imagen del Pokémon y guardarla en un archivo PNG
             URL imageURL = new URL(data.getPokemonImage().obtainImage());
             try(InputStream in = imageURL.openStream();){
-                Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_image.png"));
+                Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_image.png"), StandardCopyOption.REPLACE_EXISTING);
             }
 
         }catch (IOException e){
