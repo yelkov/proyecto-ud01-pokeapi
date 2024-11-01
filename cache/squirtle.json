@@ -1,0 +1,84 @@
+{
+  "pokemon" : {
+    "id" : 7,
+    "name" : "squirtle",
+    "names" : [ {
+      "name" : "ゼニガメ",
+      "language" : {
+        "name" : "ja-Hrkt"
+      }
+    }, {
+      "name" : "Zenigame",
+      "language" : {
+        "name" : "roomaji"
+      }
+    }, {
+      "name" : "꼬부기",
+      "language" : {
+        "name" : "ko"
+      }
+    }, {
+      "name" : "傑尼龜",
+      "language" : {
+        "name" : "zh-Hant"
+      }
+    }, {
+      "name" : "Carapuce",
+      "language" : {
+        "name" : "fr"
+      }
+    }, {
+      "name" : "Schiggy",
+      "language" : {
+        "name" : "de"
+      }
+    }, {
+      "name" : "Squirtle",
+      "language" : {
+        "name" : "es"
+      }
+    }, {
+      "name" : "Squirtle",
+      "language" : {
+        "name" : "it"
+      }
+    }, {
+      "name" : "Squirtle",
+      "language" : {
+        "name" : "en"
+      }
+    }, {
+      "name" : "ゼニガメ",
+      "language" : {
+        "name" : "ja"
+      }
+    }, {
+      "name" : "杰尼龟",
+      "language" : {
+        "name" : "zh-Hans"
+      }
+    } ]
+  },
+  "areas" : [ {
+    "location_area" : {
+      "name" : "vermilion-city-area"
+    }
+  }, {
+    "location_area" : {
+      "name" : "pallet-town-area"
+    }
+  }, {
+    "location_area" : {
+      "name" : "lumiose-city-area"
+    }
+  }, {
+    "location_area" : {
+      "name" : "seaward-cave-area"
+    }
+  } ],
+  "pokemonImage" : {
+    "sprites" : {
+      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+    }
+  }
+}
