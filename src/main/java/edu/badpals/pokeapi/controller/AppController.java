@@ -124,7 +124,7 @@ public class AppController {
                 "json","xml","txt","bin"
         ));
         cmbFormat.setValue("json");
-        logo.setImage(new Image("file:src/main/resources/images/pokeapi.png"));
+        logo.setImage(new Image(getClass().getResource("/images/pokeapi.png").toExternalForm()));
     }
 
     /**
