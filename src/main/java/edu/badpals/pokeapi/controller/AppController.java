@@ -1,8 +1,7 @@
 package edu.badpals.pokeapi.controller;
 
-import edu.badpals.pokeapi.Application;
 import edu.badpals.pokeapi.auth.LogInManager;
-import edu.badpals.pokeapi.model.Area;
+import edu.badpals.pokeapi.model.area.Area;
 import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.model.PokemonData;
 import edu.badpals.pokeapi.service.APIPetitions;
@@ -15,12 +14,10 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -184,14 +181,25 @@ public class AppController {
         currentPokemonName.setText(pokemon.obtainNameDictionary().get("english"));
         pokemonId.setText(String.valueOf(id));
         show(pokemonImage, true);
-        File fileImage = new File(CacheManager.loadImageCache(pokemon.getName()));
-        if (fileImage.exists()){
-            pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
-        } else {
-            pokemonImage.setImage(new Image(pokemonData.getPokemonImage().obtainImage()));
-            CacheManager.saveCache(pokemonData);
-        }
 
+        File fileGif = new File(CacheManager.loadGifCache(pokemon.getName()));
+        if (fileGif.exists()){
+            pokemonImage.setImage(new Image(String.valueOf(fileGif)));
+        }else{
+            String pokemonGif = pokemonData.getPokemonImage().obtainGif();
+            if(pokemonGif != null){
+                pokemonImage.setImage(new Image(pokemonGif));
+                CacheManager.saveCache(pokemonData);
+            }else{
+                File fileImage = new File(CacheManager.loadImageCache(pokemon.getName()));
+                if (fileImage.exists()){
+                    pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
+                } else {
+                    pokemonImage.setImage(new Image(pokemonData.getPokemonImage().obtainImage()));
+                    CacheManager.saveCache(pokemonData);
+                }
+            }
+        }
         areas = pokemonData.getAreas();
         if (areas.size() > 1) {
             btnAnterior.setDisable(false);

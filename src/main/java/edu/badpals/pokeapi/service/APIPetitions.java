@@ -3,12 +3,11 @@ package edu.badpals.pokeapi.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.badpals.pokeapi.model.Area;
+import edu.badpals.pokeapi.model.area.Area;
 import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.model.PokemonData;
-import edu.badpals.pokeapi.model.PokemonImage;
+import edu.badpals.pokeapi.model.image.PokemonImage;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.net.MalformedURLException;

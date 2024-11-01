@@ -1,5 +1,8 @@
 package edu.badpals.pokeapi.model;
 
+import edu.badpals.pokeapi.model.area.Area;
+import edu.badpals.pokeapi.model.image.PokemonImage;
+
 import java.io.Serializable;
 import java.util.List;
 

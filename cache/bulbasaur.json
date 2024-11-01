@@ -78,7 +78,16 @@
   } ],
   "pokemonImage" : {
     "sprites" : {
-      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "versions" : {
+        "generation-v" : {
+          "black-white" : {
+            "animated" : {
+              "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif"
+            }
+          }
+        }
+      }
     }
   }
 }

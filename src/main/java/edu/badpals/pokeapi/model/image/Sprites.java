@@ -1,4 +1,4 @@
-package edu.badpals.pokeapi.model;
+package edu.badpals.pokeapi.model.image;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -27,6 +27,9 @@ public class Sprites implements Serializable {
     @JsonProperty("front_default")
     private String front_default;
 
+    @JsonProperty("versions")
+    private Versions versions;
+
     /**
      * Constructor por defecto.
      */
@@ -51,17 +54,21 @@ public class Sprites implements Serializable {
         this.front_default = front_default;
     }
 
-    /**
-     * Proporciona una representación en cadena del objeto {@link Sprites}.
-     *
-     * Esta representación incluye la URL del sprite frontal por defecto del Pokémon.
-     *
-     * @return Una cadena que contiene la URL de la imagen frontal por defecto del Pokémon.
-     */
+
+    public Versions getVersions() {
+        return versions;
+    }
+
+    public void setVersions(Versions versions) {
+        this.versions = versions;
+    }
+
+
     @Override
     public String toString() {
         return "Sprites{" +
                 "front_default='" + front_default + '\'' +
+                ", versions=" + versions +
                 '}';
     }
 }

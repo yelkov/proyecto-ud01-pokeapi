@@ -1,22 +1,15 @@
 package edu.badpals.pokeapi.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.badpals.pokeapi.model.Area;
-import edu.badpals.pokeapi.model.Pokemon;
 import edu.badpals.pokeapi.model.PokemonData;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.runtime.ObjectMethods;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Clase encargada de gestionar la caché de datos de Pokémon.
@@ -53,6 +46,14 @@ public class CacheManager {
                 Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_image.png"), StandardCopyOption.REPLACE_EXISTING);
             }
 
+            // Descargar el gif del Pokémon y guardarla en un archivo GIF
+            URL gifURL = new URL(data.getPokemonImage().obtainGif());
+            if (gifURL != null){
+                try(InputStream in = gifURL.openStream();){
+                    Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_animated.gif"), StandardCopyOption.REPLACE_EXISTING);
+                }
+            }
+
         }catch (IOException e){
             // Registra un error si falla al guardar en caché
             ErrorLogger.saveErrorLog("Error saving cache. Cache directory does not exist:" + DIR_CACHE);
@@ -83,6 +84,11 @@ public class CacheManager {
     public static String loadImageCache(String pokemonName){
         String pokemonImage = "file:" + DIR_CACHE + pokemonName + "_image.png";
         return pokemonImage;
+    }
+
+    public static String loadGifCache(String pokemonName){
+        String pokemomGif = "file:" + DIR_CACHE + pokemonName + "_animated.gif";
+        return pokemomGif;
     }
 
     /**

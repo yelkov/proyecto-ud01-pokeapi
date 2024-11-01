@@ -1,4 +1,4 @@
-package edu.badpals.pokeapi.model;
+package edu.badpals.pokeapi.model.image;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -61,6 +61,10 @@ public class PokemonImage implements Serializable {
      */
     public String obtainImage() {
         return sprites.getFront_default();
+    }
+
+    public String obtainGif(){
+        return sprites.getVersions().getGeneration_v().getBlack_white().getAnimated().getFront_default();
     }
 
     /**

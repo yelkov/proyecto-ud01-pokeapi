@@ -1,6 +1,7 @@
 package edu.badpals.pokeapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import edu.badpals.pokeapi.model.area.ForeignName;
 
 import java.io.Serializable;
 import java.util.HashMap;
