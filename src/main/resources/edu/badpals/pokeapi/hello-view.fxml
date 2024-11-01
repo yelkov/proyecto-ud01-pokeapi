@@ -1,78 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.GridPane?>
-<ScrollPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.badpals.pokeapi.controller.AppController"
-            fitToWidth="true"
-            fitToHeight="true">
+<ScrollPane fitToHeight="true" fitToWidth="true" minHeight="600.0" minWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="edu.badpals.pokeapi.controller.AppController">
     <content>
         <VBox alignment="CENTER" spacing="10.0" styleClass="panel">
-            <ImageView fx:id="logo" fitWidth="300" fitHeight="120"/>
+            <ImageView fx:id="logo" fitHeight="120" fitWidth="300" />
 
             <HBox alignment="CENTER" spacing="20.0">
-                <TextField fx:id="pokemonName" maxWidth="200.0"/>
-                <Button text="Buscar" onAction="#loadPokemon"/>
-                <Button text="Limpiar" onAction="#cleanFields"/>
-                <Button text="Borrar Caché" onAction="#deleteCache"/>
+                <TextField fx:id="pokemonName" maxWidth="200.0" />
+                <Button onAction="#loadPokemon" text="Buscar" />
+                <Button onAction="#cleanFields" text="Limpiar" />
+                <Button onAction="#deleteCache" text="Borrar Caché" />
             </HBox>
 
-            <Label fx:id="errorMessage" text="Error al cargar los datos del pokemon" managed="false" visible="false"/>
-            <ImageView fx:id="pokemonImage" managed="false" visible="false"/>
+            <Label fx:id="errorMessage" managed="false" text="Error al cargar los datos del pokemon" visible="false" />
+            <ImageView fx:id="pokemonImage" managed="false" visible="false" />
 
             <HBox alignment="CENTER" spacing="20.0">
-                <Label fx:id="currentPokemonName" visible="false" managed="false"/>
+                <Label fx:id="currentPokemonName" managed="false" visible="false" />
             </HBox>
-
-            <HBox alignment="CENTER" spacing="20.0">
-                <Label text="Pokemon id:"/>
-                <Label fx:id="pokemonId"/>
+            <HBox fx:id="typesBox" alignment="CENTER" spacing="10.0" managed="true" visible="true">
             </HBox>
 
             <HBox alignment="CENTER" spacing="20.0">
-                <Label text="Idioma:"/>
-                <ComboBox fx:id="languages" onAction="#loadForeignName" maxWidth="130" maxHeight="15"/>
-                <Label fx:id="foreignName"/>
+                <Label text="Pokemon id:" />
+                <Label fx:id="pokemonId" />
             </HBox>
 
-            <Label text="Localización:"/>
+            <HBox alignment="CENTER" spacing="20.0">
+                <Label text="Idioma:" />
+                <ComboBox fx:id="languages" maxHeight="15" maxWidth="130" onAction="#loadForeignName" />
+                <Label fx:id="foreignName" />
+            </HBox>
+
+            <Label text="Localización:" />
             <HBox alignment="CENTER" spacing="5.0">
-                <Button fx:id="btnAnterior" disable="true" text="&lt;" styleClass="small-button" onAction="#getPreviousArea"/>
-                <Label alignment="CENTER" minWidth="200.0" fx:id="pokemonLocation"/>
-                <Button fx:id="btnSiguiente" disable="true" text="&gt;" styleClass="small-button" onAction="#getNextArea"/>
+                <Button fx:id="btnAnterior" disable="true" onAction="#getPreviousArea" styleClass="small-button" text="&lt;" />
+                <Label fx:id="pokemonLocation" alignment="CENTER" minWidth="200.0" />
+                <Button fx:id="btnSiguiente" disable="true" onAction="#getNextArea" styleClass="small-button" text="&gt;" />
             </HBox>
 
-            <Label text="Exportar"/>
-            <VBox fx:id="exportArea" alignment="CENTER" spacing="15.0" managed="false" visible="false">
-                <HBox spacing="10.0" alignment="CENTER">
-                    <Label text="Ruta para exportar"/>
-                    <TextField fx:id="pathName"/>
-                    <ComboBox fx:id="cmbFormat"/>
-                    <Button fx:id="btnExport" text="Exportar" disable="true" onAction="#export"/>
+            <Label text="Exportar" />
+            <VBox fx:id="exportArea" alignment="CENTER" managed="false" spacing="15.0" visible="false">
+                <HBox alignment="CENTER" spacing="10.0">
+                    <Label text="Ruta para exportar" />
+                    <TextField fx:id="pathName" />
+                    <ComboBox fx:id="cmbFormat" />
+                    <Button fx:id="btnExport" disable="true" onAction="#export" text="Exportar" />
                 </HBox>
-                <Label fx:id="exportMessage" text=""/>
-                <Button fx:id="btnLogOut" text="Log Out" onAction="#logOut"/>
+                <Label fx:id="exportMessage" text="" />
+                <Button fx:id="btnLogOut" onAction="#logOut" text="Log Out" />
             </VBox>
 
-            <VBox fx:id="logInArea" alignment="center" spacing="15.0" managed="true">
-                <Label text="Es necesario estar registrado para exportar la información"/>
+            <VBox fx:id="logInArea" alignment="center" managed="true" spacing="15.0">
+                <Label text="Es necesario estar registrado para exportar la información" />
                 <HBox alignment="CENTER" spacing="10.0">
-                    <Button fx:id="btnLogIn" text="Log In" onAction="#showlogIn"/>
-                    <Button fx:id="btnSignUp" text="Registrarse" onAction="#showRegister"/>
+                    <Button fx:id="btnLogIn" onAction="#showlogIn" text="Log In" />
+                    <Button fx:id="btnSignUp" onAction="#showRegister" text="Registrarse" />
                 </HBox>
-                <VBox fx:id="loginFields" alignment="CENTER" spacing="5.0" managed="false" visible="false">
+                <VBox fx:id="loginFields" alignment="CENTER" managed="false" spacing="5.0" visible="false">
                     <HBox alignment="CENTER" spacing="5.0">
                         <Label text="Usuario                     " />
                         <TextField fx:id="userName" />
@@ -81,14 +77,13 @@
                         <Label text="Contraseña               " />
                         <PasswordField fx:id="password" />
                     </HBox>
-                    <HBox fx:id="passwordConfirm" alignment="CENTER" managed="false" visible="false" spacing="5.0">
+                    <HBox fx:id="passwordConfirm" alignment="CENTER" managed="false" spacing="5.0" visible="false">
                         <Label text="Repita la contraseña" />
                         <PasswordField fx:id="passwordRepeated" />
                     </HBox>
-                    <Label fx:id="logInStatus" managed="false" visible="false" text=""/>
-                    <Button fx:id="btnCheckLogIn" text="Entrar" managed="false" visible="false" onAction="#checkLogIn"/>
-                    <Button fx:id="btnCheckRegister" text="Confirmar" managed="false" visible="false"
-                            onAction="#checkRegister"/>
+                    <Label fx:id="logInStatus" managed="false" text="" visible="false" />
+                    <Button fx:id="btnCheckLogIn" managed="false" onAction="#checkLogIn" text="Entrar" visible="false" />
+                    <Button fx:id="btnCheckRegister" managed="false" onAction="#checkRegister" text="Confirmar" visible="false" />
                 </VBox>
             </VBox>
         </VBox>

@@ -88,6 +88,15 @@
           }
         }
       }
-    }
+    },
+    "types" : [ {
+      "type" : {
+        "name" : "grass"
+      }
+    }, {
+      "type" : {
+        "name" : "poison"
+      }
+    } ]
   }
 }

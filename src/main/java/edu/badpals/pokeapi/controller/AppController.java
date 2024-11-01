@@ -19,7 +19,9 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Clase AppController.
@@ -98,6 +100,10 @@ public class AppController {
     @FXML
     private ImageView pokemonImage, logo;  // Vistas de imagen para mostrar el logo de la aplicación y la imagen del Pokémon
 
+    @FXML
+    private HBox typesBox;
+
+
     // Variables estáticas para mantener el estado actual del Pokémon, su área de ubicación y el usuario logeado
     public static PokemonData pokemonData;
     public static Pokemon pokemon;
@@ -105,6 +111,7 @@ public class AppController {
     public static List<Area> areas;
     public static int currentArea = 0;
     public static String currentUsername = null;
+    public static Map<String,Image> typeImages = new HashMap<>();
 
     /**
      * Inicializa el contenido de las ComboBox de selección de idioma y formato de exportación,
@@ -122,6 +129,7 @@ public class AppController {
         ));
         cmbFormat.setValue("json");
         logo.setImage(new Image(getClass().getResource("/images/pokeapi.png").toExternalForm()));
+        loadTypeImages();
     }
 
     /**
@@ -200,6 +208,7 @@ public class AppController {
                 }
             }
         }
+        showPokemonTypes(pokemonData.getPokemonImage().obtainTypesName());
         areas = pokemonData.getAreas();
         if (areas.size() > 1) {
             btnAnterior.setDisable(false);
@@ -262,6 +271,39 @@ public class AppController {
             currentArea = areas.size() - 1;
         }
         searchArea();
+    }
+
+    private void loadTypeImages(){
+        typeImages.put("fire",new Image(getClass().getResource("/images/fire.png").toExternalForm()));
+        typeImages.put("bug",new Image(getClass().getResource("/images/bug.png").toExternalForm()));
+        typeImages.put("dark",new Image(getClass().getResource("/images/dark.png").toExternalForm()));
+        typeImages.put("dragon",new Image(getClass().getResource("/images/dragon.png").toExternalForm()));
+        typeImages.put("electric",new Image(getClass().getResource("/images/electric.png").toExternalForm()));
+        typeImages.put("fighting",new Image(getClass().getResource("/images/fighting.png").toExternalForm()));
+        typeImages.put("flying",new Image(getClass().getResource("/images/flying.png").toExternalForm()));
+        typeImages.put("ghost",new Image(getClass().getResource("/images/ghost.png").toExternalForm()));
+        typeImages.put("grass",new Image(getClass().getResource("/images/grass.png").toExternalForm()));
+        typeImages.put("ground",new Image(getClass().getResource("/images/ground.png").toExternalForm()));
+        typeImages.put("ice",new Image(getClass().getResource("/images/ice.png").toExternalForm()));
+        typeImages.put("normal",new Image(getClass().getResource("/images/normal.png").toExternalForm()));
+        typeImages.put("poison",new Image(getClass().getResource("/images/poison.png").toExternalForm()));
+        typeImages.put("psychic",new Image(getClass().getResource("/images/psychic.png").toExternalForm()));
+        typeImages.put("rock",new Image(getClass().getResource("/images/rock.png").toExternalForm()));
+        typeImages.put("steel",new Image(getClass().getResource("/images/steel.png").toExternalForm()));
+        typeImages.put("fairy",new Image(getClass().getResource("/images/fairy.png").toExternalForm()));
+        typeImages.put("water",new Image(getClass().getResource("/images/water.png").toExternalForm()));
+    }
+
+    public void showPokemonTypes(List<String> typesName){
+        typesBox.getChildren().clear();
+        show(typesBox,true);
+
+        for (String typeName : typesName){
+            ImageView typeImage = new ImageView(typeImages.get(typeName));
+            typeImage.setFitHeight(25);
+            typeImage.setFitWidth(60);
+            typesBox.getChildren().add(typeImage);
+        }
     }
 
     /**
@@ -411,6 +453,8 @@ public class AppController {
         exportMessage.setText("");
         show(pokemonImage, false);
         pokemonImage.setImage(new Image("file: "));
+        typesBox.getChildren().clear();
+        show(typesBox,false);
     }
 
     /**

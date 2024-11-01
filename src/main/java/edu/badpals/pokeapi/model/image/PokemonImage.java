@@ -3,6 +3,8 @@ package edu.badpals.pokeapi.model.image;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Clase que representa la imagen de un Pokémon, obtenida desde la API.
@@ -27,6 +29,9 @@ public class PokemonImage implements Serializable {
     // Objeto que contiene los sprites (imágenes) del Pokémon.
     @JsonProperty("sprites")
     private Sprites sprites;
+
+    @JsonProperty("types")
+    private List<Types> typesList;
 
     /**
      * Constructor por defecto.
@@ -67,6 +72,22 @@ public class PokemonImage implements Serializable {
         return sprites.getVersions().getGeneration_v().getBlack_white().getAnimated().getFront_default();
     }
 
+    public List<Types> getTypesList() {
+        return typesList;
+    }
+
+    public void setTypesList(List<Types> typesList) {
+        this.typesList = typesList;
+    }
+
+    public List<String> obtainTypesName(){
+        List<String> typesName = new ArrayList<>();
+        for ( Types types : getTypesList()){
+            typesName.add(types.getType().getName());
+        }
+        return typesName;
+    }
+
     /**
      * Proporciona una representación en cadena del objeto {@link PokemonImage}.
      *
@@ -78,6 +99,7 @@ public class PokemonImage implements Serializable {
     public String toString() {
         return "PokemonImage{" +
                 "sprites=" + sprites +
+                ", typesList=" + typesList +
                 '}';
     }
 }

@@ -78,7 +78,21 @@
   } ],
   "pokemonImage" : {
     "sprites" : {
-      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
-    }
+      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      "versions" : {
+        "generation-v" : {
+          "black-white" : {
+            "animated" : {
+              "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/7.gif"
+            }
+          }
+        }
+      }
+    },
+    "types" : [ {
+      "type" : {
+        "name" : "water"
+      }
+    } ]
   }
 }

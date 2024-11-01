@@ -78,7 +78,21 @@
   } ],
   "pokemonImage" : {
     "sprites" : {
-      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-    }
+      "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      "versions" : {
+        "generation-v" : {
+          "black-white" : {
+            "animated" : {
+              "front_default" : "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif"
+            }
+          }
+        }
+      }
+    },
+    "types" : [ {
+      "type" : {
+        "name" : "fire"
+      }
+    } ]
   }
 }
