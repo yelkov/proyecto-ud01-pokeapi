@@ -1,9 +1,12 @@
 package edu.badpals.pokeapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import edu.badpals.pokeapi.model.area.ForeignName;
+import edu.badpals.pokeapi.model.languages.FlavourTextEntry;
+import edu.badpals.pokeapi.model.languages.ForeignName;
 
+import javax.swing.text.FlowView;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +31,9 @@ public class Pokemon implements Serializable {
 
     @JsonProperty("names")
     private List<ForeignName> foreignNames; // Lista de nombres del Pokémon en otros idiomas
+
+    @JsonProperty("flavor_text_entries")
+    private List<FlavourTextEntry> descriptions;
 
     /**
      * Constructor por defecto. Se utiliza principalmente para deserialización
@@ -90,6 +96,14 @@ public class Pokemon implements Serializable {
         this.foreignNames = foreignNames;
     }
 
+    public List<FlavourTextEntry> getDescriptions() {
+        return descriptions;
+    }
+
+    public void setDescriptions(List<FlavourTextEntry> descriptions) {
+        this.descriptions = descriptions;
+    }
+
     /**
      * Genera un diccionario que asocia el nombre de cada idioma con su traducción del nombre del Pokémon en ese idioma.
      *
@@ -103,6 +117,60 @@ public class Pokemon implements Serializable {
         return dictionary;
     }
 
+    public List<String> obtainVersions(){
+        List<String> versions = new ArrayList<>();
+        for (FlavourTextEntry entry : getDescriptions()){
+            String version = entry.getVersion().getName();
+            if (!versions.contains(version)){
+                versions.add(version);
+            }
+        }
+        return versions.stream().sorted().toList();
+    }
+
+    public Map<String, String> obtainDescriptionsDictionary(){
+        Map<String,String> dictionary = new HashMap<>();
+        for (FlavourTextEntry entry : getDescriptions()){
+            dictionary.putIfAbsent(entry.getLanguage().getName()+entry.getVersion().getName(),entry.getDescription());
+        }
+        return dictionary;
+    }
+
+    public String transformLanguage2Code(String language){
+        String code = "";
+        switch (language){
+            case "korean":
+                code = "ko";
+                break;
+            case "english":
+                code = "en";
+                break;
+            case "french":
+                code = "fr";
+                break;
+            case "german":
+                code = "de";
+                break;
+            case "español":
+                code = "es";
+                break;
+            case "italiano":
+                code = "it";
+                break;
+            case "japanese":
+                code = "ja";
+                break;
+            case "simplified chinese":
+                code = "zh-Hans";
+                break;
+            default:
+                code = "other";
+                break;
+        }
+        return code;
+    }
+
+
     /**
      * Proporciona una representación en cadena del objeto {@link Pokemon}
      *
@@ -114,6 +182,7 @@ public class Pokemon implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", foreignNames=" + foreignNames +
+                ", descriptions=" + descriptions +
                 '}';
     }
 }

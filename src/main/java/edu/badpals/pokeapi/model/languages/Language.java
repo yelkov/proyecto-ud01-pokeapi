@@ -1,4 +1,4 @@
-package edu.badpals.pokeapi.model.area;
+package edu.badpals.pokeapi.model.languages;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

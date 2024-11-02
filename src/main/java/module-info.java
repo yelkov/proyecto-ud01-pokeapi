@@ -15,4 +15,6 @@ module edu.badpals.pokeapi {
     opens edu.badpals.pokeapi.model.image;
     exports edu.badpals.pokeapi.model.area;
     opens edu.badpals.pokeapi.model.area;
+    exports edu.badpals.pokeapi.model.languages;
+    opens edu.badpals.pokeapi.model.languages;
 }

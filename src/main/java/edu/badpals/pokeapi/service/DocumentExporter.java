@@ -2,7 +2,7 @@ package edu.badpals.pokeapi.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.badpals.pokeapi.model.area.Area;
-import edu.badpals.pokeapi.model.area.ForeignName;
+import edu.badpals.pokeapi.model.languages.ForeignName;
 import edu.badpals.pokeapi.model.PokemonData;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;

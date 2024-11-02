@@ -120,3 +120,19 @@ ImageView {
     -fx-font-family: "Microsoft YaHei"; /* Fuente para visualizar mejor caracteres orientales */
     -fx-font-size: 1.5em;
 }
+
+/*Estilo para los tooltip*/
+.tooltip{
+    -fx-background-color: #fff176;
+    -fx-text-fill: #3B4CCA;
+    -fx-font-size: 30px;
+    -fx-padding: 5;
+    -fx-background-radius: 5;
+}
+
+/* Estilo para los Labels */
+TextFlow {
+    -fx-font-size: 14px;
+    -fx-text-fill: #1D2C5E; /* Texto azul oscuro*/
+    -fx-font-weight: bold;
+}

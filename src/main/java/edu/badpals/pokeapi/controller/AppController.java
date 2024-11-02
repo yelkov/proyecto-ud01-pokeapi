@@ -14,8 +14,13 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 
 import java.io.File;
 import java.io.IOException;
@@ -103,6 +108,12 @@ public class AppController {
     @FXML
     private HBox typesBox;
 
+    @FXML
+    private ComboBox versions;
+
+    @FXML
+    private TextFlow description;
+
 
     // Variables estáticas para mantener el estado actual del Pokémon, su área de ubicación y el usuario logeado
     public static PokemonData pokemonData;
@@ -120,7 +131,7 @@ public class AppController {
     @FXML
     private void initialize() {
         languages.setItems(FXCollections.observableArrayList(
-                "english","japanese","korean","french","german","simplified chinese"
+                "english","japanese","korean","español","italiano","french","german","simplified chinese"
         ));
         languages.setValue("english");
 
@@ -130,6 +141,11 @@ public class AppController {
         cmbFormat.setValue("json");
         logo.setImage(new Image(getClass().getResource("/images/pokeapi.png").toExternalForm()));
         loadTypeImages();
+        pokemonName.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER){
+                loadPokemon();
+            }
+        });
     }
 
     /**
@@ -220,6 +236,9 @@ public class AppController {
         btnExport.setDisable(false);
         loadForeignName();
         searchArea();
+        versions.setItems(FXCollections.observableArrayList(pokemonData.getPokemon().obtainVersions()));
+        versions.setValue("red");
+        loadDescription();
     }
 
     /**
@@ -232,6 +251,36 @@ public class AppController {
         } catch (NullPointerException e){
 
         }
+    }
+
+    public void loadDescription(){
+        try{
+            description.getChildren().clear();
+            String idioma = languages.getSelectionModel().getSelectedItem();
+            String code = pokemon.transformLanguage2Code(idioma);
+            String version = versions.getSelectionModel().getSelectedItem().toString();
+            show(description,true);
+            String descriptionText = pokemon.obtainDescriptionsDictionary().get(code+version);
+
+            if (descriptionText != null){
+                Text text = new Text(descriptionText.replaceAll("\n"," ").replaceAll("\f"," "));
+                text.setFill(Color.web("#1D2C5E"));
+                description.getChildren().add(text);
+                description.setTextAlignment(TextAlignment.CENTER);
+            }else{
+                Text text = new Text("");
+                description.getChildren().add(text);
+            }
+
+        }catch (NullPointerException e){
+            Text text = new Text("- -");
+            description.getChildren().add(text);
+        }
+
+    }
+    public void onLanguageOrVersionChanged(){
+        loadForeignName();
+        loadDescription();
     }
 
     /**
@@ -302,6 +351,8 @@ public class AppController {
             ImageView typeImage = new ImageView(typeImages.get(typeName));
             typeImage.setFitHeight(25);
             typeImage.setFitWidth(60);
+            Tooltip tooltip = new Tooltip(typeName);
+            Tooltip.install(typeImage,tooltip);
             typesBox.getChildren().add(typeImage);
         }
     }
@@ -455,6 +506,8 @@ public class AppController {
         pokemonImage.setImage(new Image("file: "));
         typesBox.getChildren().clear();
         show(typesBox,false);
+        description.getChildren().clear();
+        show(description,false);
     }
 
     /**

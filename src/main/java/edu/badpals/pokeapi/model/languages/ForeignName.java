@@ -1,4 +1,4 @@
-package edu.badpals.pokeapi.model.area;
+package edu.badpals.pokeapi.model.languages;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -102,6 +102,12 @@ public class ForeignName implements Serializable {
                 break;
             case "de":
                 name = "german";
+                break;
+            case "es":
+                name = "español";
+                break;
+            case "it":
+                name = "italiano";
                 break;
             case "ja":
                 name = "japanese";
