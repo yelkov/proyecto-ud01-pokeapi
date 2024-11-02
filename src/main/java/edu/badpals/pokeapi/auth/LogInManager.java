@@ -26,7 +26,7 @@ import java.util.Properties;
 public class LogInManager {
 
     // Ruta al archivo que contiene las credenciales de los usuarios.
-    private static final String CREDENTIALS_FILE = "src/main/resources/credentials.properties";
+    private static final String CREDENTIALS_FILE = ".appData/credentials.properties";
 
     /**
      * Autentica a un usuario verificando el nombre de usuario y la contraseña proporcionados.
