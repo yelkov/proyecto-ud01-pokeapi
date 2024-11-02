@@ -41,22 +41,38 @@ public class CacheManager {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(DIR_CACHE + data.getPokemon().getName() + ".json"),data);
 
             // Descargar la imagen del Pokémon y guardarla en un archivo PNG
-            URL imageURL = new URL(data.getPokemonImage().obtainImage());
-            try(InputStream in = imageURL.openStream();){
-                Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_image.png"), StandardCopyOption.REPLACE_EXISTING);
-            }
+            savePokemonImageCache(data);
 
             // Descargar el gif del Pokémon y guardarla en un archivo GIF
+            savePokemonGifCache(data);
+
+        }catch (IOException e){
+            // Registra un error si falla al guardar en caché
+            ErrorLogger.saveErrorLog("Error saving JSON cache.");
+        }
+    }
+
+    public static void savePokemonGifCache(PokemonData data) {
+        try{
             URL gifURL = new URL(data.getPokemonImage().obtainGif());
             if (gifURL != null){
                 try(InputStream in = gifURL.openStream();){
                     Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_animated.gif"), StandardCopyOption.REPLACE_EXISTING);
                 }
             }
-
         }catch (IOException e){
-            // Registra un error si falla al guardar en caché
-            ErrorLogger.saveErrorLog("Error saving cache. Cache directory does not exist:" + DIR_CACHE);
+            ErrorLogger.saveErrorLog("Error saving pokemon GIF in cache.");
+        }
+    }
+
+    public static void savePokemonImageCache(PokemonData data){
+        try{
+            URL imageURL = new URL(data.getPokemonImage().obtainImage());
+            try(InputStream in = imageURL.openStream();){
+                Files.copy(in, Paths.get(DIR_CACHE + data.getPokemon().getName() + "_image.png"), StandardCopyOption.REPLACE_EXISTING);
+            }
+        }catch (IOException e){
+            ErrorLogger.saveErrorLog("Error saving pokemon image PNG in cache.");
         }
     }
 

@@ -133,7 +133,7 @@ public class AppController {
         languages.setItems(FXCollections.observableArrayList(
                 "english","japanese","korean","español","italiano","french","german","simplified chinese"
         ));
-        languages.setValue("english");
+        languages.setValue("español");
 
         cmbFormat.setItems(FXCollections.observableArrayList(
                 "json","xml","txt","bin"
@@ -213,14 +213,14 @@ public class AppController {
             String pokemonGif = pokemonData.getPokemonImage().obtainGif();
             if(pokemonGif != null){
                 pokemonImage.setImage(new Image(pokemonGif));
-                CacheManager.saveCache(pokemonData);
+                CacheManager.savePokemonGifCache(pokemonData);
             }else{
                 File fileImage = new File(CacheManager.loadImageCache(pokemon.getName()));
                 if (fileImage.exists()){
                     pokemonImage.setImage(new Image(CacheManager.loadImageCache(pokemon.getName())));
                 } else {
                     pokemonImage.setImage(new Image(pokemonData.getPokemonImage().obtainImage()));
-                    CacheManager.saveCache(pokemonData);
+                    CacheManager.savePokemonImageCache(pokemonData);
                 }
             }
         }
@@ -237,7 +237,7 @@ public class AppController {
         loadForeignName();
         searchArea();
         versions.setItems(FXCollections.observableArrayList(pokemonData.getPokemon().obtainVersions()));
-        versions.setValue("red");
+        versions.setValue(pokemonData.getPokemon().obtainVersions().get(0));
         loadDescription();
     }
 
@@ -388,8 +388,9 @@ public class AppController {
             initLogIn();
             try {
                 printPokemonInfo();
-            } catch (NullPointerException e){}
-                //si no pudo cargar el pokemon, no se carga
+            } catch (NullPointerException e){
+                cleanFields();
+            }
         } else {
             password.setText("");
             logInStatus.setText("Usuario o contraseña no válidos");
