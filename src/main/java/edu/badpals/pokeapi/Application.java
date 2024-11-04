@@ -1,13 +1,11 @@
 package edu.badpals.pokeapi;
 
 import edu.badpals.pokeapi.controller.AppController;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
-import java.awt.*;
+import javafx.scene.image.Image;
 import java.io.IOException;
 /**
  * Clase principal de la aplicación búsqueda de Pokémon, que extiende la clase {@code javafx.application.Application}.
@@ -41,6 +39,8 @@ public class Application extends javafx.application.Application {
 
         // Configurar el título y la escena de la ventana
         stage.setTitle("Pokemon Searcher");
+        Image icon = new Image(String.valueOf(getClass().getResource("/images/pika.png")));
+        stage.getIcons().add(icon);
         stage.setScene(scene);
         stage.show();
 
